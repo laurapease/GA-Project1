@@ -10,6 +10,9 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT || 4000;
 app.set('view engine', 'ejs');
+const layouts = require('express-ejs-layouts');
+app.use(layouts);
+
 
 const morgan = require('morgan');
 app.use(morgan('tiny'));
@@ -21,7 +24,7 @@ app.use(morgan('tiny'));
 
 //const controlOTBP = require('./controllers/');
 
-app.use('/', (req, res) => { res.send('You have reached the / page.')});
+app.use('/', (req, res) => { res.render('index')});
 
 app.get('*', (req, res) => {res.send('Error, unprogrammed route.')});
 
