@@ -17,7 +17,12 @@ mongoose.connection.on('error', (err) => {
 
 
 module.exports = {
+<<<<<<< HEAD
+     City: require('./City'),
+     User: require('./Comment')
+=======
      Place: require('./Place'),
      // User: require('./User')
+>>>>>>> f2a4e1616c8058bc4abdce08d43012ff4953be94
 };
 

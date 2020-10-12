@@ -1,19 +1,23 @@
-const mongoose = require('mongoose');
-const userSchema = mongoose.Schema( {
+const mongoose= require('mongoose');
+const commentSchema = mongoose.Schema({
 
-     name: {type: String,
+     id: {type: String,
      required: true},
 
-     email: {type: String,
+     body: {type: String,
+     required: true,
+    minLength: 10,
+     maxLength: 300},
+
+     timestamp: {
+         type: Date,
      required: true},
 
-     location: {type: String},
-
-     comments: [{type: String}]
+     city: [{type: String,
+     }],
 
 });
 
-const User = mongoose.model('User', userSchema);
+const Comment = mongoose.model('Comment', citySchema);
 
-module.exports = User;
-
+module.exports = Comment;
