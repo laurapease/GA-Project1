@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="/home/elias/OTBP.png"
+   inkscape:export-xdpi="15.4"
+   inkscape:export-ydpi="15.4"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="OTBP favicon.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect833"
+       effect="spiro" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect16"
+       is_visible="true" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath842">
+      <use
+         x="0"
+         y="0"
+         xlink:href="#g838"
+         id="use844"
+         width="100%"
+         height="100%" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.175"
+     inkscape:cx="-2792.9198"
+     inkscape:cy="2907.089"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1893"
+     inkscape:window-height="1049"
+     inkscape:window-x="2"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g840"
+       clip-path="url(#clipPath842)">
+      <g
+         inkscape:label="Clip"
+         id="g838">
+        <ellipse
+           ry="297.84521"
+           rx="329.59521"
+           cy="-545.13098"
+           cx="-302.38095"
+           id="path12"
+           style="opacity:0.98999999;fill:#f1f2da;fill-opacity:1;stroke:#ffce96;stroke-width:13.22900009;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+        <path
+           transform="matrix(1.095834,0,0,1,-1.2999492,-3.0238096)"
+           sodipodi:nodetypes="ccsc"
+           inkscape:original-d="m -272.27189,-288.89931 c 394.62766,-119.85917 703.26137,-149.6639 1.86347,-499.69689 80.40059,101.29789 42.37498,27.22483 0,0 -250.03825,-160.64308 -29.22374,183.52673 -173.53906,243.79879"
+           inkscape:path-effect="#path-effect16"
+           inkscape:connector-curvature="0"
+           id="path14"
+           d="m -272.27189,-288.89931 1.86347,-499.69689 v 0 l -173.53906,243.79879"
+           style="fill:none;fill-opacity:1;stroke:#ff7777;stroke-width:101.36499786;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
+        <path
+           transform="matrix(-1.1132584,-0.0696975,3.3570291e-8,1,-598.65712,-21.8706)"
+           style="fill:none;fill-opacity:1;stroke:#ff7777;stroke-width:101.36499786;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+           d="m -272.27189,-288.89931 1.86347,-499.69689 v 0 l -173.53906,243.79879"
+           id="path831"
+           inkscape:connector-curvature="0"
+           inkscape:path-effect="#path-effect833"
+           inkscape:original-d="m -272.27189,-288.89931 c 394.62766,-119.85917 703.26137,-149.6639 1.86347,-499.69689 80.40059,101.29789 42.37498,27.22483 0,0 -250.03825,-160.64308 -29.22374,183.52673 -173.53906,243.79879"
+           sodipodi:nodetypes="ccsc" />
+      </g>
+    </g>
+  </g>
+</svg>
