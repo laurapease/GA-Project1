@@ -18,6 +18,6 @@ mongoose.connection.on('error', (err) => {
 
 module.exports = {
      Place: require('./Place'),
-     // User: require('./User')
+     Comment: require('./Comment')
 };
 
