@@ -18,6 +18,6 @@ mongoose.connection.on('error', (err) => {
 
 module.exports = {
      City: require('./City'),
-     User: require('./User')
+     User: require('./Comment')
 };
 
