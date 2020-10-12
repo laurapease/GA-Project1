@@ -71,6 +71,18 @@ router.post('/', (req, res) => {
      });
 });
 
+
+router.post('/:commentId', (req, res) => {
+     
+
+     db.Comment.findByIdAndDelete(req.params.commentId,
+          (err, deletedComment) => {
+          if (err) return console.log(err);
+          console.log(deletedComment);
+          res.redirect('/comments');
+     });
+});
+
 //GET edit
 
 router.get('/:commentId/edit', (req, res) => {
@@ -85,26 +97,7 @@ router.get('/:commentId/edit', (req, res) => {
      });
 });
 
-router.delete('/:commentId', (req, res) => {
-     const commentId = req.params.commentId;
 
-     db.Comment.findByIdAndDelete(commentId, (err) => {
-          if (err) return console.log(err);
-
-          db.Place.findOne({'comments': commentId}, (err, foundPlace) => {
-               if (err) return console.log(err);
-
-               foundPlace.comments.remove(commentId);
-               foundPlace.save((err, updatedPlace) => {
-                    if (err) return console.log(err);
-
-                    res.redirect('/comments');
-               })
-          })
-
-
-     });
-});
 
 //PUT update
 
