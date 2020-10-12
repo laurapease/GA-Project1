@@ -17,7 +17,7 @@ mongoose.connection.on('error', (err) => {
 
 
 module.exports = {
-     City: require('./City'),
-     User: require('./User')
+     Place: require('./Place'),
+     // User: require('./User')
 };
 
