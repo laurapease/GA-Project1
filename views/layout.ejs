@@ -4,9 +4,11 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- GOOGLE FONTS: HEEBO----------------------------------------------------------------------- -->
+<!-- GOOGLE FONTS: RUBIK----------------------------------------------------------------------- -->
 
-     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+
 
 <!-- BOOTSTRAP IMPORT SHEETS----------------------------------------------------------------------- -->
 
@@ -19,11 +21,32 @@
 
      <title>OTBP</title>
 </head>
-<body>
+<body style="font-family: 'Rubik', sans-serif;">
      
-     <div class="">This would be the nav spot.</p>
-     <div style="font-family: 'Heebo', sans-serif;" >
+     
+     <div class="container-fluid">
+          
+          <ul class="nav nav-pills nav-fill" style="background-color: #ffce96; min-height: 100px; align-items: center; font-size: 1.15em; margin-bottom: 35px;">
+               <div class="row">
+                    <div class="col">
+               <li class="nav-item"><a class="text-light" href="/">Home</a></li></div>
+
+                    <div class="col">
+               <li class="nav-item"><a class="text-light" href="/places">All Places</a></li>
+               </div>
+
+                    <div class="col">
+               <li class="new-item">
+               <a class="text-light" href="/places/new">Add Place</a></li>
+                    </div>
+               </div>
+          </ul>
+     </div>
+
+     <div class="container">
+          
      <%- body%>
+          
      </div>
 </body>
 </html>
