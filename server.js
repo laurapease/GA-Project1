@@ -10,10 +10,14 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT || 4000;
 const morgan = require('morgan');
-app.use(morgan('tiny'));
+app.use(morgan(':method :url'));
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(bodyParser.json());
+
+app.use(methodOverride('_method'));
 
 /* View Engine & Layouts Setup -------------------------------------------------------------------------- */
 
@@ -28,7 +32,7 @@ app.use(layouts);
 
 
 
-const placeCTRL = require('./controllers/placeCTRL');
+const ctrl = require('./controllers');
 
 
 /* Index-------------------------------------------------------------------------- */
@@ -38,7 +42,8 @@ app.get('/', (req, res) => { res.render('index')});
 
 /*Places Route -------------------------------------------------------------------------- */
 
-app.use('/places', placeCTRL);
+app.use('/places', ctrl.places);
+app.use('/comments', ctrl.comments)
 
 
 /* Error Handler & Port Listener -------------------------------------------------------------------------- */

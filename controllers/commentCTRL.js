@@ -47,3 +47,25 @@ router.get('/:commentId', (req, res) => {
           res.render('comments/show', commentById);
      });
 });
+
+//POST Create
+
+router.post('/', (req, res) => {
+     db.Comment.create(req.body, (err, newComment)=>{
+          if (err) return console.log(err);
+
+          db.Place.findById(req.body.place, (err, foundPlace) => {
+               if (err) return console.log(err);
+
+               foundPlace.comments.push(newComment._id);
+               foundPlace.save((err, savedPlace) => {
+                    if (err) return console.log(err);
+
+                    res.redirect(`/comments/${newComment.id}`);
+               })
+
+          })
+     });
+});
+
+module.exports = router;
