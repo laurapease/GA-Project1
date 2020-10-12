@@ -68,4 +68,19 @@ router.post('/', (req, res) => {
      });
 });
 
+//GET edit
+
+router.get('/:commentId/edit', (req, res) => {
+     db.Comment.findById(req.params.commentId, (err, foundComment) => {
+          if (err) return console.log(err);
+
+          const context = {
+               comment: foundComment,
+          }
+
+          res.render('comments/edit', context);
+     });
+});
+
+
 module.exports = router;

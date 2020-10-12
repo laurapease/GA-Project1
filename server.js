@@ -14,9 +14,9 @@ app.use(morgan(':method :url'));
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
-
 app.use(bodyParser.json());
 
+const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 /* View Engine & Layouts Setup -------------------------------------------------------------------------- */
@@ -33,7 +33,6 @@ app.use(layouts);
 
 
 const ctrl = require('./controllers');
-
 
 /* Index-------------------------------------------------------------------------- */
 

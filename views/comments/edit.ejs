@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>OTBP</title>
+</head>
+<body>
+     
+
+     <h3>Edit Info for Comment: <%=comment.timestamp%> </h3>
+
+     <form action="/comments/<%= comment.id%>?_method=PUT" method="POST">
+     <div>
+          <label for="id">Id</label>
+          <input type="text" name="title" value="<%=comment.title%>">
+     </div>
+
+     <div>
+          <label for="body">Body</label>
+          <input type="text" name="body"><%=comment.body%><input>
+     </div>
+
+     <input type="submit">
+     </form>
+
+
+</body>
+</html>
