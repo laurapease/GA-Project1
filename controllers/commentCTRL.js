@@ -20,3 +20,16 @@ router.get('/', (req, res) => {
           res.render('comments/index', context);
      })
 });
+
+//GET new
+
+router.get('/new', (req, res) => {
+     db.Place.find({}, (err, allPlaces) => {
+          if (err) return console.log(err);
+
+          const context= {
+               places: allPlaces
+          };
+          res.render('comments/new', context);
+     });
+});
