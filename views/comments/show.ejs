@@ -8,18 +8,18 @@
 <body>
      
 
-<h3><%=timestamp %></h3>
+<h3><%=comment.name %></h3>
 <a href="/places/<%=place.id%>"><p><%= place.name %></p></a>
-<p><%= body%></p>
+<p><%= comment.body%></p>
 
 <div>
-<form action="/comments/<%= id%>"?_method=DELETE" method="POST">
+<form action="/comments/<%comment._id%>"?_method=DELETE" method="POST">
 <input type="submit" value="Delete">
 </form>
 </div>
 
 <div>
-<form action="/comments/<%=id%>/edit" method="GET">
+<form action="/comments/<%comment._id%>/edit" method="GET">
 <input type="submit" value="Update">
 </form>
 </div>

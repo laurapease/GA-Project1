@@ -1,7 +1,7 @@
 const mongoose= require('mongoose');
 const commentSchema = mongoose.Schema({
 
-     id: {
+     firstName: {
         type: String,
         required: true},
 
@@ -11,15 +11,11 @@ const commentSchema = mongoose.Schema({
         minLength: 10,
         maxLength: 300},
 
-     timestamp: {
-        type: Date,
-        required: true},
-
      place: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Place'}
 
-}, {timestamps: true});
+});
 
 const Comment = mongoose.model('Comment', commentSchema);
 

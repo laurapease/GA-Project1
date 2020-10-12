@@ -37,14 +37,17 @@ router.get('/new', (req, res) => {
 //GET show
 
 router.get('/:commentId', (req, res) => {
-     db.Comment.findById(req.params.commentId)
-     .populate('place')
-     .exec((err, commentById) => {
+     db.Comment.findById(req.params.commentId, 
+     (err, commentById) => {
           if (err) return console.log(err);
 
           console.log('commentById:', commentById);
+          let commentParent = commentById.place;
 
-          res.render('comments/show', commentById);
+          res.render('comments/show', {
+               comment: commentById,
+               place: commentParent
+          });
      });
 });
 
@@ -53,11 +56,11 @@ router.get('/:commentId', (req, res) => {
 router.post('/', (req, res) => {
      db.Comment.create(req.body, (err, newComment)=>{
           if (err) return console.log(err);
-
+          console.log(newComment);
           db.Place.findById(req.body.place, (err, foundPlace) => {
                if (err) return console.log(err);
-
-               foundPlace.comments.push(newComment._id);
+               console.log(foundPlace);
+               foundPlace.comments.push(newComment);
                foundPlace.save((err, savedPlace) => {
                     if (err) return console.log(err);
 
