@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>OTBP</title>
+</head>
+<body>
+
+     <h3><strong>Place: </strong> <%=place.name%></h3>
+
+     <ul>
+
+          <li>Country: <%=place.country%></li>
+          <li>Continent: <%=place.continent%></li>
+          <li>Comments: <%=place.comments%></li>
+     <br/>
+     </ul>
+
+     <form action="/places/<%= place._id %>?_method=DELETE" method="POST">
+     <input class="ml-3" type="submit" value="Delete Place"/>
+     </form>
+
+
+     <br/>
+
+     <form action="/places/<%=place._id%>/edit" method="GET">
+     <input class="ml-3" type="submit" value="Edit Place"/>
+     </form>
+     
+</body>
+</html>

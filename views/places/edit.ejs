@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>OTBP</title>
+</head>
+<body>
+     
+
+<h3>Edit Place</h3>
+
+<form action="/places/<%=place._id %>"?_method="PUT" method="POST">
+
+<div>
+     <label for="name">Name</label>
+     <input type="text" id="name" name="name"
+     value="<%=place.name%>"/>
+</div>
+
+<div>
+     <label for="country">Country</label>
+     <input type="text" id="country" name="country"
+     value="<%=place.country%>"/>
+</div>
+
+<div>
+     <label for="continent">Continent</label>
+     <input type="text" id="continent" name="continent" value="<%=place.continent%>"/>
+</div>
+
+<div>
+     <label for="comments">Comments</label>
+     <input type="text" id="comments"
+     name="comments" value="<%=place.comments%>"/>
+</div>
+
+<div><input type="submit" value="Edit Place"/>
+</div>
+</form>
+
+</body>
+</html>
