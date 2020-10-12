@@ -40,7 +40,14 @@ router.post('/', (req, res) => {
      
 });
 
+//DELETE place
 
+router.post('/:placeId', (req, res) => {
+     db.Place.findByIdAndDelete(req.params.placeId, (err, deletedPlace) => {
+          if (err) return console.log(err);
+          res.redirect('/places');
+     });
+});
 
 //SHOW places
 
@@ -54,5 +61,7 @@ router.get('/:placeId', (req, res) => {
           });
      });
 });
+
+
 
 module.exports = router;
