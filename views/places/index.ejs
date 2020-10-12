@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>OTBP</title>
+</head>
+<body>
+
+<h3>Places Visited</h3>
+
+<ul class="list-group list-group-flush">
+
+     <% for (let i = 0; i < places.length; i++) { %>
+
+
+          <li class="list-group-item">
+
+          <a href="/places/<%=places[i]._id%>">
+          <%=places[i].name%></a>
+          </li>
+
+     <% } %>
+
+
+
+</ul>
+
+     
+</body>
+</html>
