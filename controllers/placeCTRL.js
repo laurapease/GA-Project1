@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 
 //DELETE place
 
-router.post('/:placeId', (req, res) => {
+router.delete('/:placeId', (req, res) => {
      db.Place.findByIdAndDelete(req.params.placeId, (err, deletedPlace) => {
           if (err) return console.log(err);
           res.redirect('/places');
@@ -62,6 +62,33 @@ router.get('/:placeId', (req, res) => {
      });
 });
 
+//EDIT Place
+
+router.get('/:placeId/edit', (req, res) => {
+     db.Place.findById(req.params.placeId, (err, foundPlace) => {
+          if (err) return console.log(err);
+
+          res.render('places/edit', {
+               place: foundPlace,
+          });
+     });
+});
+
+
+//Update Place
+
+router.post('/:placeId', (req, res) => {
+     db.Place.findByIdAndUpdate(
+          req.params.placeId,
+          req.body,
+          {new: true},
+          (err, updatedPlace) => {
+               if (err) return console.log(err);
+               console.log(updatedPlace);
+               res.redirect(`/places/${updatedPlace._id}`);
+          }
+     );
+});
 
 
 module.exports = router;
