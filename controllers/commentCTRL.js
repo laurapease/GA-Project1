@@ -33,3 +33,17 @@ router.get('/new', (req, res) => {
           res.render('comments/new', context);
      });
 });
+
+//GET show
+
+router.get('/:commentId', (req, res) => {
+     db.Comment.findById(req.params.commentId)
+     .populate('place')
+     .exec((err, commentById) => {
+          if (err) return console.log(err);
+
+          console.log('commentById:', commentById);
+
+          res.render('comments/show', commentById);
+     });
+});
