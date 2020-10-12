@@ -8,13 +8,19 @@
 <body>
 
      <h3><strong>Place: </strong> <%=place.name%></h3>
-
+     <section>
      <ul>
 
           <li>Country: <%=place.country%></li>
           <li>Continent: <%=place.continent%></li>
-          <li>Comments: <%=place.comments%></li>
-     <br/>
+
+          <ul>
+               <%=place.comments.forEach((comment) => { %>
+                    <a href="/comments/<%=comment.id%>"><li><%= comment.body%></li></a>
+
+               <% }) %>
+     
+          </ul>
      </ul>
 
      <form action="/places/<%= place._id %>?_method=DELETE" method="POST">
@@ -28,5 +34,6 @@
      <input class="ml-3" type="submit" value="Edit Place"/>
      </form>
      
+</section>
 </body>
 </html>
