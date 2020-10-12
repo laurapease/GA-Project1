@@ -1,4 +1,4 @@
 module.exports = {
-     places: require('./placeCTRL'),
-     comments: require('./commentCTRL')
+     places: require('./placeCTRL.js'),
+     comments: require('./commentCTRL.js')
 };

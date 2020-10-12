@@ -1,19 +1,13 @@
 const mongoose= require('mongoose');
 const commentSchema = mongoose.Schema({
 
-     firstName: {
-        type: String,
-        required: true},
+   place: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Place'},
+   
+   firstName: String,
 
-     body: {
-        type: String,
-        required: true,
-        minLength: 10,
-        maxLength: 300},
-
-     place: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Place'}
+   body: String
 
 });
 

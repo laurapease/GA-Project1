@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../models');
+const Place = require('../models/Place.js')
+const Comment = require('../models/Comment.js')
 
 //We're going to be on the /places path.
 
@@ -60,9 +62,10 @@ router.get('/:placeId', (req, res) => {
 
 //delete place
 
-router.post('/:placeId', (req, res) => {
+router.delete('/:placeId', (req, res) => {
      db.Place.findByIdAndDelete(req.params.placeId, (err, deletedPlace) => {
           if (err) return console.log(err);
+          console.log(deletedPlace);
           res.redirect('/places');
      });
 });
@@ -71,9 +74,10 @@ router.post('/:placeId', (req, res) => {
 //EDIT Place
 
 router.get('/:placeId/edit', (req, res) => {
-     db.Place.findById(req.params.placeId, (err, foundPlace) => {
+     db.Place.findById(req.params.placeId, 
+          (err, foundPlace) => {
           if (err) return console.log(err);
-
+          console.log(foundPlace);
           res.render('places/edit', {
                place: foundPlace,
           });
@@ -83,7 +87,7 @@ router.get('/:placeId/edit', (req, res) => {
 
 //Update Place
 
-router.put('/:placeId', (req, res) => {
+router.post('/:placeId', (req, res) => {
      db.Place.findByIdAndUpdate(
           req.params.placeId,
           req.body,

@@ -6,7 +6,7 @@
      <title>OTBP</title>
 </head>
 <body>
-     <!--Id body timestamp place-->
+     <!--Id body place-->
 
      <h3>Add New Comment</h3>
      <form action="/comments" method="POST">
@@ -14,7 +14,7 @@
      <select name="place">
 
           <% places.forEach((place) => { %>
-          <option value="<%= place.id %>"><%=place.name %></option>
+          <option value="<%= place._id %>"><%=place.name %></option>
      
           <%})%>
           

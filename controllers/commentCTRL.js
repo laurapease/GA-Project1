@@ -4,7 +4,7 @@ const router = express.Router();
 //Database
 
 const db = require('../models');
-
+const Place = require('../models/Place.js');
 //Current Path = '/comments'
 
 //GET index
@@ -54,23 +54,26 @@ router.get('/:commentId', (req, res) => {
 //POST Create
 
 router.post('/', (req, res) => {
+     
+     
      db.Comment.create(req.body, (err, newComment)=>{
           if (err) return console.log(err);
           console.log(newComment);
+          
           db.Place.findById(req.body.place, (err, foundPlace) => {
                if (err) return console.log(err);
                console.log(foundPlace);
-               foundPlace.comments.push(newComment);
+               foundPlace.comments.push(req.body._id);
                foundPlace.save((err, savedPlace) => {
                     if (err) return console.log(err);
 
-                    res.redirect(`/comments/${newComment.id}`);
-               })
-
-          })
+                    res.redirect(`/places/${foundPlace._id}`);
+          });
      });
+     })
 });
 
+//POST Delete
 
 router.post('/:commentId', (req, res) => {
      

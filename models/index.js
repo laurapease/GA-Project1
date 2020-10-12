@@ -17,7 +17,7 @@ mongoose.connection.on('error', (err) => {
 
 
 module.exports = {
-     Place: require('./Place'),
-     Comment: require('./Comment')
+     Place: require('./Place.js'),
+     Comment: require('./Comment.js')
 };
 

@@ -14,15 +14,19 @@
           <li>Country: <%=place.country%></li>
           <li>Continent: <%=place.continent%></li>
 
-          <ul>
-           <% place.comments.forEach((comment) => { %>
-               <a href="/comments/<%=comment._id%>">
+     </ul>
+     <ul>
+          <li>Comments: </li>
           
-                    <li><%= comment.body%></li></a>
+           <% for (let i=0; i < place.comments.length; i++) { %>
 
-               <% }) %>
+               <li><%=place.comments.firstName%></li>
+
+               <li><%=place.comments.body%></li>
+
+               <% } %>
      
-          </ul>
+          
      </ul>
 
      <form action="/places/<%= place._id %>?_method=DELETE" method="POST">

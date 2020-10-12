@@ -6,11 +6,10 @@
      <title>OTBP</title>
 </head>
 <body>
-     
 
-<h3><%=comment.firstName %></h3>
-<a href="/places/<%=place.id%>"><p><%= place.name %></p></a>
-<p><%= comment.body%></p>
+<h3><%=comment.firstName%></h3>
+<p><%=comment.place %></p>
+<p><%=comment.body%></p>
 
 
 <form action="/comments/<%=comment._id%>"?_method=DELETE" method="POST">
