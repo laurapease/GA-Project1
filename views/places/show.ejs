@@ -7,16 +7,21 @@
 </head>
 <body>
 
-     <h3><strong>Place: </strong> <%=place.name%></h3>
+     <div class="text-center">
+     <h2><strong><%=place.name%></strong></h2>
      <section>
-     <ul>
-
+     <ul style="list-style-type: none;">
           <li>Country: <%=place.country%></li>
           <li>Continent: <%=place.continent%></li>
-
      </ul>
 
-     <h4>Last Comment: </h4>
+     <div class=row">
+          <div class="col-12">
+               <img class="img-fluid" src="/images/fremont_troll.jpg"/>
+          </div>
+     </div>
+     </div>
+     <h4 class="mt-4">Last Comment: </h4>
      <p><%=comments%></p>
 
      <h4 class="mb-3">Add a Comment!</h4>
