@@ -33,31 +33,28 @@
 <title>OTBP</title>
 </head>
 
-<body style="font-family: 'Rubik', sans-serif;">
+<body style="font-family: 'Rubik', sans-serif; padding: 0;">
      
      
-     <div class="container-fluid text-center">
+     <div class="container-fluid text-center" style="margin: 0; padding: 0;">
           
-          <nav class="nav nav-pills nav-fill mb-3" 
-          style="background-color: #ffce96; 
+          <nav class="nav nav-pills nav-fill text-lowercase" 
+          style="background-color: #ffaa5e; 
           align-items: center; 
           justify-content: center;
-          border-radius: 1%;">
+          border-radius: 1%;
+          font-size: larger;
+          padding-bottom: .10em;">
 
-          <div class="row" style="align-items: center;">
+          <div class="row align-items-center" style="min-width: 100vh; margin: 0;">
                <div class="col-4">
                <li class="navbar-brand"><a class="text-dark" href="/">
                     <img src="/images/favicon-32x32.png" width="32" height="32" alt=""/>Home</a></li>
                
-               <span class="navbar-text" style="font-size: x-small;">Navigate back to the home page.</span></div>
+               <span class="navbar-text" style="font-size: small;">Navigate back to the home page</span></div>
 
                <div class="col">
-                    <li class="nav-item"><a class="text-dark" href="/places">Places You've Been</a></li>
-               </div>
-
-               <div class="col">
-                    <li class="new-item">
-                    <a class="text-dark" href="/places/new">New Places</a></li>
+                    <li class="nav-item"><a class="text-dark" href="/places">Places</a></li>
                </div>
 
                <div class="col">
@@ -70,7 +67,10 @@
 
      </div>
 
-     <div class="container" style="min-width: auto;">
+     <div class="container-fluid" style="
+     background-color: #ffecd6;
+     min-height: 100vh;
+     min-width: 100vh;">
           
      <%- body%>
           

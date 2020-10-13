@@ -22,7 +22,9 @@
      </div>
      </div>
      <h4 class="mt-4">Last Comment: </h4>
+     <% if (comments.length > 0) { %>
      <p><%=comments%></p>
+     <%}%>
 
      <h4 class="mb-3">Add a Comment!</h4>
      <form action="/comments/new" method="GET">
