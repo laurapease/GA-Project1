@@ -47,18 +47,25 @@ router.post('/', (req, res) => {
 
 router.get('/:placeId', (req, res) => {
 
-     db.Place.findById(req.params.placeId)
+     Place.findById(req.params.placeId)
      .populate('place')
      .exec((err, foundPlace) => {
      
           if (err) return console.log(err);
-          console.log('foundPlace:', foundPlace);
-          res.render('places/show', {
-               place: foundPlace,
-               comments: foundPlace.comments
-          });
-     });
-});
+          console.log('foundPlace:', foundPlace.comments);
+
+          const placeComments = Comment.findById(foundPlace.comments)
+               .populate('Comment')
+               .exec((err, data) => {
+                    if (err) console.log(err);
+                    console.log(data);
+                    res.render('places/show', {
+                         place: foundPlace,
+                         comments: data.body
+                    });
+               });
+        
+     })});
 
 
 //delete place
