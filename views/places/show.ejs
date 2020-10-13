@@ -15,7 +15,7 @@
           <li>Continent: <%=place.continent%></li>
 
           <ul>
-               <%=place.comments.forEach((comment) => { %>
+               <%place.comments.forEach((comment) => { %>
                     <a href="/comments/<%=comment.id%>"><li><%= comment.body%></li></a>
 
                <% }) %>

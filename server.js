@@ -10,6 +10,7 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT || 4000;
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 app.use(morgan(':method :url'));
 
 const bodyParser = require('body-parser');
