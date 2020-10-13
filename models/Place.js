@@ -1,21 +1,23 @@
 const mongoose= require('mongoose');
+const Comment = require('../models/Comment.js');
+
+
 const placeSchema = mongoose.Schema({
 
-     name: {type: String,
-     required: true},
+    
 
-     country: {type: String,
-     required: true},
+     name: String,
 
-     continent: {type: String,
-     required: true},
+     country: String,
+
+     continent: String,
 
      comments: [{
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Comment'
-     }],
+     }]
 
-}, {timestamps: true});
+});
 
 const Place = mongoose.model('Place', placeSchema);
 
