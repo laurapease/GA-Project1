@@ -58,7 +58,7 @@ router.get('/:commentId', (req, res) => {
 router.post('/', (req, res) => {
      
      const hook = req.body.placeId; //The place we're appending the thing
-     
+     console.log(req.params);
      Comment.create(
           req.body, 
           (err, newComment) => {

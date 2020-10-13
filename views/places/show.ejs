@@ -17,20 +17,15 @@
      </ul>
 
      <h4>Last Comment: </h4>
-     <ul>
+     <p><%=comments%></p>
 
-               <li><%=comments%></li>
-
-     
-          
-     </ul>
+     <h4 class="mb-3">Add a Comment!</h4>
+     <form action="/comments/new" method="GET">
+     <input class="ml-3 mb-3" type="submit" value="Add Comment"/><br/>
 
      <form action="/places/<%= place._id %>?_method=DELETE" method="POST">
-     <input class="ml-3" type="submit" value="Delete Place"/>
+     <input class="ml-3 mb-3" type="submit" value="Delete Place"/>
      </form>
-
-
-     <br/>
 
      <form action="/places/<%=place._id%>/edit" method="GET">
      <input class="ml-3" type="submit" value="Edit Place"/>
