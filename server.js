@@ -19,6 +19,10 @@ app.use(bodyParser.json());
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
+/* Public Static Directory-------------------------------------------------------------------------- */
+
+app.use(express.static('public'));
+
 /* View Engine & Layouts Setup -------------------------------------------------------------------------- */
 
 app.set('view engine', 'ejs');
@@ -26,13 +30,12 @@ const layouts = require('express-ejs-layouts');
 app.use(layouts);
 
 
-
-
 /* ---------------------------------------------------ROUTING----------------------- */
 
 
 
 const ctrl = require('./controllers');
+const { Server } = require('mongodb');
 
 /* Index-------------------------------------------------------------------------- */
 
@@ -47,7 +50,7 @@ app.use('/comments', ctrl.comments)
 
 /* Error Handler & Port Listener -------------------------------------------------------------------------- */
 
-app.get('*', (req, res) => {res.send('Error, unprogrammed route.')});
+// app.get('*', (req, res) => {res.send('Error, unprogrammed route.')});
 
 app.listen(PORT, () => {
      console.log(`Express is operational at ${PORT}.`)
