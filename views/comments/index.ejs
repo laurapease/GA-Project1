@@ -12,14 +12,13 @@
 
 <ul>
 
-     <% allComments.forEach((comment, index) => { %>
+     <% comments.forEach((comment, index) => { %>
      
           <li>
-               <a href="/comments/<%= comment.id %>">
-                    <h2><%= index + 1 %>. <% comment.name %> </h2>
-               </a>
-               <p><%=comment.body%></p>
-               </li>
+          <a href="/comments/<%= comment.id %>">
+          <p><%=comment.firstName%></p>
+          </a>
+          </li>
           <% }) %>
      
 </ul>

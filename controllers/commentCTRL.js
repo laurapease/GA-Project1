@@ -5,20 +5,23 @@ const router = express.Router();
 
 const db = require('../models');
 const Place = require('../models/Place.js');
+const Comment = require('../models/Comment.js');
+
 //Current Path = '/comments'
 
 //GET index
 
 router.get('/', (req, res) => {
-     //Get data for all articles.
-     db.Comment.find({}, (err, allComments) => {
+     //Get data for all comments.
+     Comment.find({}, (err, allComments) => {
           if (err) return console.log(err);
 
-          const context = {allComments};
+          const context = {
+               comments: allComments};
+          
 
           //render template
-          res.render('comments/index', context);
-     })
+          res.render('comments/index', context)});
 });
 
 //GET new
@@ -42,11 +45,10 @@ router.get('/:commentId', (req, res) => {
           if (err) return console.log(err);
 
           console.log('commentById:', commentById);
-          let commentParent = commentById.place;
 
           res.render('comments/show', {
                comment: commentById,
-               place: commentParent
+              
           });
      });
 });
@@ -55,19 +57,22 @@ router.get('/:commentId', (req, res) => {
 
 router.post('/', (req, res) => {
      
+     const hook = req.body.placeId; //The place we're appending the thing
      
-     db.Comment.create(req.body, (err, newComment)=>{
+     Comment.create(
+          req.body, 
+          (err, newComment) => {
           if (err) return console.log(err);
           console.log(newComment);
           
-          db.Place.findById(req.body.place, (err, foundPlace) => {
+          Place.findById(req.body.place, (err, foundPlace) => {
                if (err) return console.log(err);
                console.log(foundPlace);
-               foundPlace.comments.push(req.body._id);
+               foundPlace.comments.push(newComment);
                foundPlace.save((err, savedPlace) => {
                     if (err) return console.log(err);
-
-                    res.redirect(`/places/${foundPlace._id}`);
+                    console.log(savedPlace, 'savedNewPlace');
+                    res.redirect('/comments');
           });
      });
      })

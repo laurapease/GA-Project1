@@ -54,7 +54,8 @@ router.get('/:placeId', (req, res) => {
           if (err) return console.log(err);
           console.log('foundPlace:', foundPlace);
           res.render('places/show', {
-               place: foundPlace
+               place: foundPlace,
+               comments: foundPlace.comments
           });
      });
 });
