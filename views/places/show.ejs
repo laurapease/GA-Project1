@@ -7,25 +7,29 @@
 </head>
 <body>
 
-     <div class="text-center">
+     <div class="text-center pt-3">
      <h2><strong><%=place.name%></strong></h2>
      <section>
-     <ul style="list-style-type: none;">
+     <ul class="text-center" style="list-style-type: none; padding:0;">
           <li>Country: <%=place.country%></li>
           <li>Continent: <%=place.continent%></li>
      </ul>
 
-          <ul>
-               <%place.comments.forEach((comment) => { %>
-                    <a href="/comments/<%=comment.id%>"><li><%= comment.body%></li></a>
      <div class=row">
-          <div class="col-12">
-               <img class="img-fluid" src="/images/fremont_troll.jpg"/>
+          <div class="col-9 offset-1">
+               <img class="img-fluid rounded" src="/images/fremont_troll.jpg"/>
           </div>
      </div>
      </div>
      <h4 class="mt-4">Last Comment: </h4>
-     <p><%=comments%></p>
+     
+          <% if (comments.length > 0) { %>
+          <p style="font-size:large;" class="ml-3 text-center"><%=comments%></p> 
+          <%}%>
+    
+
+
+
 
      <h4 class="mb-3">Add a Comment!</h4>
      <form action="/comments/new" method="GET">

@@ -59,10 +59,18 @@ router.get('/:placeId', (req, res) => {
                .exec((err, data) => {
                     if (err) console.log(err);
                     console.log(data);
+                    if(foundPlace.comments.length > 0) {
                     res.render('places/show', {
                          place: foundPlace,
                          comments: data.body
-                    });
+                    });}
+
+                    else {
+                         res.render('places/show', {
+                              place:foundPlace,
+                              comments: [],
+                         })
+                    }
                });
         
      })});
