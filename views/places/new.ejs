@@ -5,29 +5,35 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>OTBP</title>
 </head>
-<body>
+<body style="max-width: 100vh;">
      
-<h3 class="m-3">Add New Place</h3>
+<h3 class="pt-3 pb-3 text-center">What are we adding?</h3>
 <!-- name country continent comments -->
 <form action="/places" method="POST">
 
-          <div>
-          <label for="name">Name: </label>
-          <input type="text" id="name" name="name"/>
-          </div>
+     <div class="form-group" style="
+     max-width: 50vh;
+     justify-content: center;
+     align-items: center;">
 
-          <div>
-          <label for="country">Country: </label>
-          <input type="text" id="country" name="country"/>
-          </div>
+          
+          <label for="name"></label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Place"/>
+         
 
-          <div>
-          <label for="continent">Continent: </label>
-          <input type="text" id="continent" name="continent"/>
-          </div>
+          
+          <label for="country"></label>
+          <input type="text" class="form-control" id="country" name="country" placeholder="Country"/>
+         
 
-          <input type="submit" value="Add Place"/>
+          
+          <label for="continent"></label>
+          <input type="text" class="form-control mb-5" id="continent" name="continent" placeholder="Continent"/>
+          
 
+          <input type="submit" value="Submit"/>
+        
+     </div>
 
 </form>
 
