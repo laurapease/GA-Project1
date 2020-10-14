@@ -33,6 +33,14 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
 
+     if (!req.session.currentUser){
+
+          res.redirect('/auth/login');
+     }
+     console.log(req.session.currentUser);
+
+     req.body.user = req.session.currentUser;
+
      db.Place.create(req.body, (err, newPlace) => {
           if (err) return console.log(err);
 
@@ -40,6 +48,8 @@ router.post('/', (req, res) => {
 
           res.redirect('/places');
      });
+
+     
      
 });
 
