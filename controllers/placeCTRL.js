@@ -56,12 +56,15 @@ router.get('/:placeId', (req, res) => {
 
           if(foundPlace.comments.length > 0) {
                res.render('places/show', {
-                    place: foundPlace                        
+                    place: foundPlace,
+                    commentsLeft: foundPlace.comments                        
                })}
 
                else {
                res.render('places/show', {
-                    place:foundPlace,                              comments: [],
+                    place:foundPlace,
+                    commentsLeft: []                              
+                    
                })
           }
      });

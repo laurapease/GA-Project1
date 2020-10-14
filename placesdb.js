@@ -178,3 +178,28 @@ const commentSeed = [{
 
 // });
 
+  
+Comment.find({})
+  .populate('_id')
+  .exec((err, data) => {
+    if (err) return console.log(err);
+    data.forEach(function(comment){
+    console.log(comment._id);
+    console.log(comment.place);
+    const searchTerm = comment.place;
+
+    Place.find({name: searchTerm})
+    .populate('comments')
+    .exec((error, dataTwo) => {
+    if (error) return console.log(error);
+    console.log('DataTwo' + dataTwo.name)
+    });
+
+  });
+
+  process.exit();
+
+});
+  
+
+
