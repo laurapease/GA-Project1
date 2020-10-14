@@ -48,32 +48,24 @@ router.post('/', (req, res) => {
 router.get('/:placeId', (req, res) => {
 
      Place.findById(req.params.placeId)
-     .populate('place')
+     .populate('comments')
      .exec((err, foundPlace) => {
      
           if (err) return console.log(err);
-          console.log('foundPlace:', foundPlace.comments);
+          console.log('foundPlace:', foundPlace);
 
-          const placeComments = Comment.findById(foundPlace.comments)
-               .populate('Comment')
-               .exec((err, data) => {
-                    if (err) console.log(err);
-                    console.log(data);
-                    if(foundPlace.comments.length > 0) {
-                    res.render('places/show', {
-                         place: foundPlace,
-                         comments: data.body
-                    });}
+          if(foundPlace.comments.length > 0) {
+               res.render('places/show', {
+                    place: foundPlace                        
+               })}
 
-                    else {
-                         res.render('places/show', {
-                              place:foundPlace,
-                              comments: [],
-                         })
-                    }
-               });
-        
-     })});
+               else {
+               res.render('places/show', {
+                    place:foundPlace,                              comments: [],
+               })
+          }
+     });
+});
 
 
 //delete place

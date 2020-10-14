@@ -14,7 +14,8 @@ const placeSchema = mongoose.Schema({
 
      comments: [{
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'Comment'
+          ref: 'Comment',
+          index: true
      }]
 
 });
