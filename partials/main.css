@@ -1,3 +1,4 @@
-body {
-  background: purple;
+.carousel-item {
+  width: 640px;
+  height: 360px;
 }
