@@ -3,7 +3,9 @@ const commentSchema = mongoose.Schema({
 
    place: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Place'},
+      ref: 'Place',
+      index: true
+   },
    
    firstName: String,
 
