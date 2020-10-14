@@ -4,6 +4,7 @@ const router = express.Router();
 const db = require('../models');
 const Place = require('../models/Place.js')
 const Comment = require('../models/Comment.js')
+const places = require('../placesdb');
 
 //We're going to be on the /places path.
 

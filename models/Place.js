@@ -12,6 +12,8 @@ const placeSchema = mongoose.Schema({
 
      continent: String,
 
+     image: String,
+
      comments: [{
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Comment',
