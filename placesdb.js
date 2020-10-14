@@ -88,7 +88,7 @@ const placeSeed = [
            { name: "Nusa Ceningan",
      country: "Indonesia",
      continent: "Asia",
-     image: 'hhttps://i.imgur.com/EqgE6Yo.jpgo',
+     image: 'hhttps://i.imgur.com/EqgE6Yo.jpg',
      comments: [],
       },
 
