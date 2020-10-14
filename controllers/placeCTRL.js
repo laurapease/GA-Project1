@@ -33,6 +33,14 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
 
+     if (!req.session.currentUser){
+
+          res.redirect('/auth/login');
+     }
+     console.log(req.session.currentUser);
+
+     req.body.user = req.session.currentUser;
+
      db.Place.create(req.body, (err, newPlace) => {
           if (err) return console.log(err);
 
@@ -40,6 +48,8 @@ router.post('/', (req, res) => {
 
           res.redirect('/places');
      });
+
+     
      
 });
 
@@ -57,12 +67,15 @@ router.get('/:placeId', (req, res) => {
 
           if(foundPlace.comments.length > 0) {
                res.render('places/show', {
-                    place: foundPlace                        
+                    place: foundPlace,
+                    commentsLeft: foundPlace.comments                        
                })}
 
                else {
                res.render('places/show', {
-                    place:foundPlace,                              comments: [],
+                    place:foundPlace,
+                    commentsLeft: []                              
+                    
                })
           }
      });

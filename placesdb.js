@@ -1,11 +1,21 @@
 const mongoose = require('mongoose');
-const Comment = require('./models/Comment.js');
-const Place = require('./models/Place.js');
+// const Comment = require('./models/Comment.js');
+// const Place = require('./models/Place.js');
 
 //Models have been required into this situation.
 
-const db = require('mongodb');
-const { collection } = require('./models/Comment.js');
+const db = require('./models/');
+
+/*Seeder Setup -------------------------------------------------------------------------- */
+
+const { Seeder } = require('mongo-seeding');
+const config = {
+  database: 'mongodb://localhost:27017/OTBP',
+  dropDatabase: true,
+};
+
+const seeder = new Seeder(config);
+
 const connectionString = 'mongodb://localhost:27017/OTBP';
 mongoose.connect(connectionString, {
 
@@ -165,12 +175,11 @@ const commentSeed = [{
 
 ];
 
-
 // Comment.collection.insertMany(commentSeed, (err, data) => {
 //   if (err) return console.log(err);
 //   console.log(data);
 // });
-//module.exports = places;
+// //module.exports = places;
 
 // Place.collection.insertMany(placeSeed, (err, data) => {
 //   if (err) return console.log(err);
@@ -178,11 +187,31 @@ const commentSeed = [{
 
 // });
 
-// db.Place.insertMany(places, (err, newPlace) => {
-//           if (err) return console.log(err);
 
-//           console.log(newPlace);
-//           process.exit();
-//      });
+db.Comment.find({}, (err, allComments) => {
+  allComments.forEach(function(comment){
+    console.log(comment._id);
+    console.log(comment.place);
+    console.log(comment.body);
+    console.log('*******************');
+    db.Place.findOne({name: comment.place}, (err, foundOne) => {
+      if (err) return console.log(err);
+      console.log('made it to the second search');
+      console.log(foundOne);
+      console.log(foundOne.comments);
+      foundOne.comments.push(comment._id);
+      foundOne.save((err, savedPlace) => {
+        if (err) return console.log(err);
+        console.log('you freaking made it to the end');
+        console.log(savedPlace);
+      });
 
-//      module.exports = places;
+      console.log(foundOne.comments);
+
+    });
+  });
+});
+
+
+
+module.exports = {placeSeed, commentSeed}

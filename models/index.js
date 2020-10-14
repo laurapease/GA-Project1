@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+require('dotenv').config();
+
 
 mongoose.connect(process.env.MONGODB_URI, {
      useNewUrlParser: true,
@@ -18,6 +21,7 @@ mongoose.connection.on('error', (err) => {
 
 module.exports = {
      Place: require('./Place.js'),
-     Comment: require('./Comment.js')
+     Comment: require('./Comment.js'),
+     User: require('./User.js')
 };
 
