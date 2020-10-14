@@ -1,4 +1,6 @@
+const mongoose = require('mongoose');
 
+const db = require('./models');
 
 const places = [
     
@@ -91,5 +93,13 @@ const places = [
           firstName: 'Laura',
           body: 'You can find he volcanic island of Ischia close to the more touristy island of Capri. Similar experience with far fewer people. Try the thermal spas!',
      }],}]
+
+      
+     db.Place.insertMany(places, (err, newPlace) => {
+          if (err) return console.log(err);
+
+          console.log(newPlace);
+          process.exit();
+     });
 
      module.exports = places;
