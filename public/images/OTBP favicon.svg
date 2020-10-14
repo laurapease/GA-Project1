@@ -15,7 +15,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg8"
-   inkscape:export-filename="/home/elias/OTBP.png"
+   inkscape:export-filename="/home/elias/sei/deliverables/OTBP/public/images/faviconRedux.png"
    inkscape:export-xdpi="15.4"
    inkscape:export-ydpi="15.4"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -92,13 +92,13 @@
          id="g838"
          transform="matrix(0,-1,0.94923857,0,199.95936,-847.51193)">
         <ellipse
-           ry="384.13162"
-           rx="331.3642"
-           cy="-407.27881"
-           cx="-339.92465"
+           ry="439.58624"
+           rx="378.57803"
+           cy="-419.00717"
+           cx="-314.85284"
            id="path12"
-           style="opacity:0.98999999;fill:#f1f2da;fill-opacity:1;stroke:#ffce96;stroke-width:15.06378365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
-           transform="matrix(0.98839393,0.1519126,-0.08249505,0.99659147,0,0)" />
+           style="opacity:0.98999999;fill:#f1f2da;fill-opacity:1;stroke:#ffce96;stroke-width:17.2242775;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+           transform="matrix(0.9883552,0.15216439,-0.08235627,0.99660295,0,0)" />
         <path
            transform="matrix(1.095834,0,0,1.2934566,-1.2999492,243.66267)"
            sodipodi:nodetypes="ccsc"
@@ -118,7 +118,7 @@
            inkscape:original-d="m -272.27189,-288.89931 c 394.62766,-119.85917 703.26137,-149.6639 1.86347,-499.69689 80.40059,101.29789 42.37498,27.22483 0,0 -250.03825,-160.64308 -29.22374,183.52673 -173.53906,243.79879"
            sodipodi:nodetypes="ccsc" />
         <path
-           transform="matrix(1.095834,0,0,-1.2934566,-3.342003,-1150.031)"
+           transform="matrix(1.095834,0,0,-1.2934564,-1.2999492,-1165.6809)"
            sodipodi:nodetypes="ccsc"
            inkscape:original-d="m -272.27189,-288.89931 c 394.62766,-119.85917 703.26137,-149.6639 1.86347,-499.69689 80.40059,101.29789 42.37498,27.22483 0,0 -250.03825,-160.64308 -29.22374,183.52673 -173.53906,243.79879"
            inkscape:path-effect="#path-effect16-6"
@@ -127,7 +127,7 @@
            d="m -272.27189,-288.89931 1.86347,-499.69689 v 0 l -173.53906,243.79879"
            style="fill:none;fill-opacity:1;stroke:#ff7777;stroke-width:101.36499786;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
         <path
-           transform="matrix(-1.1132584,0.08670338,3.3570291e-8,-1.2439956,-600.6992,-1087.5809)"
+           transform="matrix(-1.1250254,0.08393924,3.3925126e-8,-1.2043365,-603.88106,-1076.876)"
            style="fill:none;fill-opacity:1;stroke:#ff7777;stroke-width:101.36499786;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
            d="m -272.27189,-288.89931 1.86347,-499.69689 v 0 l -173.53906,243.79879"
            id="path831-5"
