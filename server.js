@@ -19,9 +19,25 @@ app.use(bodyParser.json());
 
 app.use(methodOverride('_method'));
 
+const session = require('express-session');
+
+
+
 /* Public Static Directory-------------------------------------------------------------------------- */
 
 app.use(express.static('public'));
+
+/* Express Session-------------------------------------------------------------------------- */
+
+app.use(session({
+     secret: process.env.SESSION_SECRET,
+     resave: false, //Only save the session if we actually changed properties during the session
+     saveUninitialized: false,
+     cookie: {
+          maxAge: 1000 * 60 * 60 * 24 * 7 * 2 //Expiration of 2 weeks by multing up milliseconds
+     }
+}));
+
 
 /* View Engine & Layouts Setup -------------------------------------------------------------------------- */
 
@@ -42,11 +58,11 @@ const { Server } = require('mongodb');
 app.get('/', (req, res) => { res.render('index')});
 
 
-/*Places Route -------------------------------------------------------------------------- */
+/*Initial Request Divios-------------------------------------------------------------------------- */
 
 app.use('/places', ctrl.places);
-app.use('/comments', ctrl.comments)
-
+app.use('/comments', ctrl.comments);
+app.use('/auth', ctrl.auths);
 
 /* Error Handler & Port Listener -------------------------------------------------------------------------- */
 

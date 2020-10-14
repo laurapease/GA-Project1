@@ -22,10 +22,15 @@
      </div>
      </div>
      <h4 class="mt-4">Last Comment: </h4>
-     
-          <% if (comments.length > 0) { %>
-          <p style="font-size:large;" class="ml-3 text-center"><%=comments%></p> 
+     <ul>
+
+          <% if (commentsLeft.length > 0) { %>
+               <% for (let i = 0; i < commentsLeft.length; i++) { %>
+          <li style="font-size:large;" class="ml-3 text-center"><%=commentsLeft[i].body%></li> 
+               <%}%>
           <%}%>
+
+     </ul>
     
 
 
