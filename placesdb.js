@@ -160,7 +160,7 @@ const placeSeed = [
     {name: "Elphinstone",
     country: "Australia",
     continent: "Australia",
-    image: "/images/elphinstone.jpg",
+    image: "/images/elphinstone.png",
     comments: [],
   },
 
@@ -233,43 +233,97 @@ const commentSeed = [{
     firstName: 'Laura',
     body: 'You can find he volcanic island of Ischia close to the more touristy island of Capri. Similar experience with far fewer people. Try the thermal spas!',
     place: "Ischia"
-    }
+    },
 
+    {
+      firstName: "Elias",
+      body: `Pozo means 'well' in English. This spot belongs to the ghost of Jacinto, a vaquero whose cow, jolted by a storm, dove towards this keyhole of sea. Suddenly, tied to Jacinto from its cow-neck to his man-waist, the cow was swallowed by a wave and fell into the water. If you stand just at the lip of the rock and call out 'Jacinto, dama la vaca!' three times, Jacinto in the frothing water might roar up and pull you in.`,
+      place: "Pozo de Jacinto"
+    },
+
+    {
+      firstName: "Elias",
+      body: 'I was in Paris on a travel scholarship, and took a couple trains to go visit Illiers-en-Combray, formerly just Illiers, now -en-Combray to honor Marcel Proust, who wrote about the small town. I had an apricot tart and climbed over some fences. This is his house!',
+      place: 'Illiers-en-Combray'
+    },
+
+    {
+      firstName: "Elias",
+      body:"Zillertal is a town in the Austrian Alps. It is super green and looks like where shepherds would have lived. I hiked to a peak here called Hamburg when I was traveling alone. It was 7 hours and I was defs crazy by the end, but it was also my 21st birthday, so that felt cool.",
+      place: "Zillertal"
+    },
+
+    {
+      firstName: "Elias",
+      body:`The Crown is one of the best spots in Baltimore. It is the first, the last, the only Crown. I used to host a reading series here called HEY YOU COME BACK before the pandemic </3.`,
+      place: "The Crown"
+    },
+
+    {
+      firstName: "Elias",
+      body:`Me and some friends went to the Outer Banks, those barrier islands off the coast of North Carolina, a few years ago. I made up a game called Sandpiper and here's the rules: You have to stand in the wet part of the sand by the tide, bend 90 degrees, and stare down at the sand. When you see the tide coming up at you, run backwards still looking down and try to outpace the wave. When it goes back to the water, you have to chase it back in. And back n forth until forever.`,
+      place: "Nag's Head"
+    },
+
+    {
+      firstName: "Elias",
+      body: "Super freakin big and cool.",
+      place: "Florence"
+    },
+
+    {
+      firstName: "Elias",
+      body:"Seattle is not, like, a place people ~travel to~ but I like the Fremont troll. When I moved to Seattle, this guy greeted me and I appreciate him for that.",
+      place: "Fremont Troll"
+    },
+
+    {
+      firstName: "Elias",
+      body: "The noble Taradale Viaduct! This is only one support of the few necessary to hold the mighty viaduct aloft.",
+      place: "Taradale Viaduct"
+
+    },
+
+    { 
+      firstName: "Elias",
+      body: `My fiance's parents live in Elphinstone. I met them this past November, and spent a lot of time walking around the area.`,
+      place: "Elphinstone"
+    }
 ];
 
-// db.Comment.collection.drop();
-// db.Place.collection.drop();
+db.Comment.collection.drop();
+db.Place.collection.drop();
 
-// db.Comment.collection.insertMany(commentSeed, (err, data) => {
-//   if (err) return console.log(err);
-//     console.log(data);
-//   });
+db.Comment.collection.insertMany(commentSeed, (err, data) => {
+  if (err) return console.log(err);
+    console.log(data);
+  });
 
-//   db.Place.collection.insertMany(placeSeed, (err, data) => {
-//     if (err) return console.log(err);
-//     console.log(data);
+  db.Place.collection.insertMany(placeSeed, (err, data) => {
+    if (err) return console.log(err);
+    console.log(data);
 
-//   });
+  });
 
 
-  // db.Comment.find({}, (err, allComments) => {
-  //   allComments.forEach(function(comment){
+  db.Comment.find({}, (err, allComments) => {
+    allComments.forEach(function(comment){
     
-  //     db.Place.findOne({name: comment.place}, (err, foundOne) => {
-  //       if (err) return console.log(err);
+      db.Place.findOne({name: comment.place}, (err, foundOne) => {
+        if (err) return console.log(err);
        
-  //       foundOne.comments.push(comment._id);
-  //       foundOne.save((err, savedPlace) => {
-  //         if (err) return console.log(err);
+        foundOne.comments.push(comment._id);
+        foundOne.save((err, savedPlace) => {
+          if (err) return console.log(err);
          
-  //         console.log(savedPlace);
-  //       });
+          console.log(savedPlace);
+        });
 
-  //       console.log(foundOne.comments);
+        console.log(foundOne.comments);
 
-  //     });
-  //   });
-  // });
+      });
+    });
+  });
 
 
 
