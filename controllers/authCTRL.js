@@ -53,8 +53,8 @@ router.post('/register', (req, res) => {
 
           if (user) {
                console.log('User account already exists.');
-               res.redirect('/auth/register');
-          } 
+               res.render('auths/oops');
+          } else {
 
           console.log('hi you made it here');
           //Hash the user password before creating the user
@@ -84,7 +84,7 @@ router.post('/register', (req, res) => {
                });
           })
     
-     })
+     }})
 });
 
 
