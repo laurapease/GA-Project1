@@ -9,6 +9,12 @@ const db = require('../models/');
 
 /* Register routes below. -------------------------------------------------------------------------- */
 
+//USER Page is on the "/auth/" itself.
+ 
+router.get('/', (req, res) => {
+     res.send(`${req.session.currentUser} user page attempt or something`);
+});
+
 //Register NEW
 router.get('/register', (req, res) => {
 
