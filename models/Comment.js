@@ -5,7 +5,9 @@ const commentSchema = mongoose.Schema({
    
    firstName: String,
 
-   body: String
+   body: String,
+
+   creator: String,
 
 });
 
