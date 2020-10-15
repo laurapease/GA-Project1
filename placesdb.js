@@ -9,6 +9,8 @@ const db = require('./models/');
 /*Seeder Setup -------------------------------------------------------------------------- */
 
 const { Seeder } = require('mongo-seeding');
+const { places } = require('./controllers');
+const { exists } = require('./models/User');
 const config = {
   database: 'mongodb://localhost:27017/OTBP',
   dropDatabase: true,
@@ -198,7 +200,7 @@ db.Comment.find({}, (err, allComments) => {
       if (err) return console.log(err);
       console.log('made it to the second search');
       console.log(foundOne);
-      console.log(foundOne.comments);
+    //   console.log(foundOne.comments);
       foundOne.comments.push(comment._id);
       foundOne.save((err, savedPlace) => {
         if (err) return console.log(err);
