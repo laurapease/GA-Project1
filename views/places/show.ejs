@@ -28,7 +28,8 @@
 
           <% if (commentsLeft.length > 0) { %>
                <% for (let i = 0; i < commentsLeft.length; i++) { %>
-          <li style="font-size:large;" class="ml-3 mt-4 text-center"><%=commentsLeft[i].body%></li> 
+          <li class="mt-4 text-center" style="font-size:large;"><%=commentsLeft[i].firstName%>:</li>
+          <li style="font-size:medium;" class="ml-3 mt-4 text-center"><%=commentsLeft[i].body%></li> 
                <%}%>
           <%}%>
 
