@@ -57,24 +57,28 @@ router.get('/:commentId', (req, res) => {
 
 router.post('/', (req, res) => {
      
-     const hook = req.body.placeId; //The place we're appending the thing
-     console.log(req.params);
-     Comment.create(
-          req.body, 
+     console.log('req params', req.params);
+     console.log('req body', req.body.firstName);
+     let user = req.session.currentUser;
+     let place = req.body.placeId;
+     console.log(req.session.currentUser);
+     req.body.user = req.session.currentUser;
+
+     Comment.create(req.body, 
           (err, newComment) => {
           if (err) return console.log(err);
           console.log(newComment);
           
-          Place.findById(req.body.place, (err, foundPlace) => {
-               if (err) return console.log(err);
-               console.log(foundPlace);
-               foundPlace.comments.push(newComment);
-               foundPlace.save((err, savedPlace) => {
-                    if (err) return console.log(err);
-                    console.log(savedPlace, 'savedNewPlace');
-                    res.redirect('/comments');
-          });
-     });
+     //      Place.findById(req.body.placeId, (err, foundPlace) => {
+     //           if (err) return console.log(err);
+     //           console.log(foundPlace);
+     //           foundPlace.comments.push(newComment);
+     //           foundPlace.save((err, savedPlace) => {
+     //                if (err) return console.log(err);
+     //                console.log(savedPlace, 'savedNewPlace');
+     //                res.redirect('/comments');
+     //      });
+     // });
      })
 });
 
