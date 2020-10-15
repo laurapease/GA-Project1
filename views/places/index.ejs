@@ -14,13 +14,23 @@
      <div class="row">
      <% for (let i = 0; i < places.length; i++) { %>
 
-     <div class="card col-5">
-          <img class="card-img-top rounded pt-3" style="width:100%; height:30vh; object-fit: cover;" src="<%=places[i].image%>">
+     <div class="card col-5 m-3" style="border: 1px solid darkgrey;
+background-color: white;
+padding: 20px 15px 30px 15px;
+box-shadow: 5px 10px 10px darkgrey;">
+          <img class="card-img-top rounded pt-3" style="width:100%; height:40vh; object-fit: cover;" src="<%=places[i].image%>">
           <div class="card-body">
-               <h5 class="card-title"><a href="/places/<%=places[i]._id%>"><%=places[i].name%></h5></a>
+               <h5 class="card-title" style="color: black; font-family: 'Reenie Beanie', cursive; font-size: 40px; font-weight: lighter"><a href="/places/<%=places[i]._id%>"><%=places[i].name%></h5></a>
           </div>
      </div>
           
+
+
+<!-- box-shadow:
+inset 0 -3em 3em rgba(0,0,0,0.1),
+0 0 0 2px rgb(255,255,255),
+0.3em 0.3em 1em rgba(0,0,0,0.3 -->
+
  <% } %>
      </div>
 </div>
