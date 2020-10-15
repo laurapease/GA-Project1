@@ -31,7 +31,7 @@
 
 <!-- PARTIALS / CSS-->
 
-<link rel="stylesheet" href="./partials/main.css">
+<link rel="stylesheet" href="/partials/main.css">
 
 
 <title>OTBP</title>
@@ -44,7 +44,7 @@
      <div class="container-fluid text-center" style="margin: 0; padding: 0;">
           
           <nav class="nav nav-pills nav-fill text-lowercase" 
-          style="background-color: #ffaa5e; 
+          style="background-color: #ecb292; 
           align-items: center; 
           justify-content: center;
           border-radius: 1%;
@@ -85,12 +85,24 @@
      </div>
 
      <div class="container-fluid" style="
-     background-color: #ffecd6;
+     background-color: rgb(46, 117, 117);
      min-height: 100vh;
      min-width: 100vh;">
           
      <%- body%>
           
      </div>
+
+
+     <form>
+          <div class="form-row">
+               <div class="form-group col-md-6">
+                    <label for="inputEmail4">Sign Up for Email Updates:</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+               </div>
+               <button type="submit" class="btn">Submit</button>
+     
+     </form>
+
 </body>
 </html>

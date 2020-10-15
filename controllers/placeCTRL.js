@@ -10,6 +10,21 @@ const places = require('../placesdb');
 
 //INDEX Places
 
+// router.get('/', (req, res) => {
+//      db.Place.find({})
+//      .populate('placeSeeds') 
+//      .exec ((err, allPlaces) => {
+//           if (err) return console.log(err);
+//           const context = {
+//                places: allPlaces,
+//                placeSeeds: placeSeeds
+//           }
+//           console.log(placeSeeds, "Did I seed this?");
+//           console.log(allPlaces, "did this add data?");
+//           res.render('places/index', context);
+//      })
+// })
+
 router.get('/', (req, res) => {
      db.Place.find({}, (err, allPlaces) => {
           console.log(allPlaces);
