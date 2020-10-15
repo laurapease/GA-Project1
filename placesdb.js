@@ -9,6 +9,8 @@ const db = require('./models/');
 /*Seeder Setup -------------------------------------------------------------------------- */
 
 const { Seeder } = require('mongo-seeding');
+const { places } = require('./controllers');
+const { exists } = require('./models/User');
 const config = {
   database: 'mongodb://localhost:27017/OTBP',
   dropDatabase: true,

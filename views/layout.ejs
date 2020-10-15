@@ -19,7 +19,7 @@
 
 <!-- BOOTSTRAP IMPORT SHEETS----------------------------------------------------------------------- -->
 
-     <link defer rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
      <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
@@ -28,6 +28,7 @@
 <!-- FAVICON----------------------------------------------------------------------- -->
 
 <link rel="icon" href="/images/favicon.ico">
+
 
 <title>OTBP</title>
 
@@ -39,7 +40,7 @@
      <div class="container-fluid text-center" style="margin: 0; padding: 0;">
           
           <nav class="nav nav-pills nav-fill text-lowercase" 
-          style="background-color: #ffaa5e; 
+          style="background-color: #ecb292; 
           align-items: center; 
           justify-content: center;
           border-radius: 1%;
@@ -47,51 +48,137 @@
           font-weight: bold;
           padding-bottom: .10em;">
 
-          <div class="row align-items-center" style="max-width: 100vh; margin: 0;">
-               <div class="col-4">
-               <li class="navbar-brand"><a class="text-dark" href="/">
-                    <img src="/images/favicon-32x32.png" width="32" height="32" alt="" class="mr-2"/>seen</a></li>
+
+<nav class="navbar navbar-expand-lg navbar-light nav-pills nav-fill text-lowercase" 
+          style="background-color: #ecb292; ">
+     <a class="navbar-brand mb-3" href="#">where to?</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+     </button>
+
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              
+               <div class="col-4 mt-2">
                
-               <span class="navbar-text" style="font-size: small;">head back to the home page</span></div>
-
-               <div class="col">
-                    <li class="nav-item"><a class="text-dark" href="/places">Places</a></li>
+                    <li class="navbar-brand"><a class="text-dark" href="/">
+                              <img src="/images/favicon-32x32.png" width="32" height="32" alt="" />home</a></li>
+               
+                    <span class="navbar-text" style="font-size: small;"></span>
                </div>
 
                <div class="col">
-                    <li class="nav-item">
-                         <a class="text-dark" href="/auth/">Account</a>
+                    <li class="nav-item mt-3">
+                         <a class="text-dark" href="/places">places</a>
                     </li>
                </div>
 
                <div class="col">
-                    <li class="nav-item">
-                         <form action="/auth/login?_method=DELETE" method="POST">
-                         <button type="submit">Logout</button></form>
+                    <li class="nav-item mt-3 ml-3 mr-2">
+                         <a class="text-dark" href="/comments">memories</a>
                     </li>
                </div>
+               
+               <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="#">Action</a>
+                         <a class="dropdown-item" href="#">Another action</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+               </li> -->
+               
+<!--          
+          <li class="nav-item text-success my-2 my-sm-0">
+               <a class="nav-link" href="/register/new.ejs">Register</a>
+          </li> -->
 
+          <div class="col">
+               <li class="nav-item mt-3 ml-2 mr-3">
+                    <a class="text-dark" href="/places">register</a>
+               </li>
+          </div>
 
-               <!-- Search Bar and Button-->
+          <div class="col">
+               <li class="nav-item mt-3 mr-4">
+                    <a class="text-dark" href="./auth/login">login</a>
+               </li>
+          </div>
+     </ul>
+     
+               <form class="form-inline pt-2 ml-3 mr-3 my-2 my-sm-0" action="/auth/logout/?_method=DELETE" method="POST">
+                    <button class="nav-item btn btn-text-dark  my-2 my-sm-0" type="submit">Logout</button>
+               </form>
 
                <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form>
-
-               
-          </div> <!--Closing Row list.-->
-          </ul>
-
      </div>
+</nav>
+
+<!-- 
+          
+
+         <nav> <div class="row align-items-center" style="max-width: 100vh; margin: 0;">
+               <div class="col-4">
+               
+               <li class="navbar-brand"><a class="text-dark" href="/">
+                    <img src="/images/favicon-32x32.png" width="32" height="32" alt=""/>home</a></li>
+               
+               <span class="navbar-text" style="font-size: small;"></span></div>
+
+               <div class="col">
+                    <li class="nav-item"><a class="text-dark" href="/places">places</a></li>
+               </div>
+
+               <div class="col">
+                    <li class="nav-item">
+                    <a class="text-dark" href="/comments">memories</a>
+                    </li>
+               </div>
+
+               <!-- Log out button-->
+<!-- 
+               <li class="nav-item">
+                    <form class="form-inline my-2 my-sm-0" action="/auth/logout/?_method=DELETE" method="POST">
+                         <button class="nav-item" type="submit">Logout</button>
+                    </form>
+               </li>
+
+          
+               </nav>
+
+
+         
+          </div> <!--Closing Row list.-->
+          <!-- </ul> -->
+
+     <!-- </div> --> 
 
      <div class="container-fluid" style="
-     background-color: #ffecd6;
+     background-color: rgb(46, 117, 117);
      min-height: 100vh;
      min-width: 100vh;">
           
      <%- body%>
           
      </div>
+
+
+     <form>
+          <div class="form-row">
+               <div class="form-group col-md-6">
+                    <label for="inputEmail4">Sign Up for Email Updates:</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+               </div>
+               <button type="submit" class="btn">Submit</button>
+     
+     </form>
+
 </body>
 </html>
