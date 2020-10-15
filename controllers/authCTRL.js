@@ -12,7 +12,19 @@ const db = require('../models/');
 //USER Page is on the "/auth/" itself.
  
 router.get('/', (req, res) => {
-     res.send(`${req.session.currentUser} user page attempt or something`);
+
+     const userQuery = req.session.currentUser;
+     db.User.findById(userQuery)
+     .populate('user')
+     .exec((err, foundUser) => {
+          if (err) return console.log(err);
+          console.log('Made it to userQuery');
+          console.log(foundUser);
+
+          res.render('auths/user', {
+          userShow: foundUser,
+     });
+});
 });
 
 //Register NEW
