@@ -188,29 +188,24 @@ const commentSeed = [{
 // });
 
 
-db.Comment.find({}, (err, allComments) => {
-  allComments.forEach(function(comment){
-    console.log(comment._id);
-    console.log(comment.place);
-    console.log(comment.body);
-    console.log('*******************');
-    db.Place.findOne({name: comment.place}, (err, foundOne) => {
-      if (err) return console.log(err);
-      console.log('made it to the second search');
-      console.log(foundOne);
-      console.log(foundOne.comments);
-      foundOne.comments.push(comment._id);
-      foundOne.save((err, savedPlace) => {
-        if (err) return console.log(err);
-        console.log('you freaking made it to the end');
-        console.log(savedPlace);
-      });
+// db.Comment.find({}, (err, allComments) => {
+//   allComments.forEach(function(comment){
+//    
+//     db.Place.findOne({name: comment.place}, (err, foundOne) => {
+//       if (err) return console.log(err);
+//       
+//       foundOne.comments.push(comment._id);
+//       foundOne.save((err, savedPlace) => {
+//         if (err) return console.log(err);
+//         
+//         console.log(savedPlace);
+//       });
 
-      console.log(foundOne.comments);
+//       console.log(foundOne.comments);
 
-    });
-  });
-});
+//     });
+//   });
+// });
 
 
 
