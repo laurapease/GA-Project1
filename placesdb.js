@@ -107,7 +107,69 @@ const placeSeed = [
      continent: "Europe",
      image: 'https://i.imgur.com/ran1MKb.jpg',
      comments: [],
-    }
+    },
+
+    {name: "Pozo de Jacinto",
+    country: "Puerto Rico",
+    continent: "Caribbean",
+    image: "/images/jacinto_vaca.jpg",
+    comments: [],
+    },
+
+    {name: "Illiers-en-Combray",
+    country: "France",
+    continent: "Europe",
+    image: "/images/proust_house.jpg",
+    comments: [],
+    },
+
+    {name: "Zillertal",
+    country: "Austria",
+    continent: "Europe",
+    image:"/images/zillertal.jpg",
+    comments: [],
+    },
+
+    {name: "The Crown",
+    country: "USA",
+    continent: "North America",
+    image: "/images/the_crown.jpg",
+    comments: [],
+    },
+
+    {name: "Outer Banks",
+    country: "USA",
+    continent: "North America",
+    image: "/images/nags_head.jpg",
+    comments: [],
+    },
+
+    {name: "Florence",
+    country: "Italy",
+    continent: "North America",
+    image: "/images/florence.jpg",
+    comments: [],
+  },
+    {name: "Seattle",
+    country: "PNW",
+    continent: "The Woods",
+    image: "/images/fremont_troll.jpg",
+    comments: [],
+  },
+
+    {name: "Elphinstone",
+    country: "Australia",
+    continent: "Australia",
+    image: "/images/elphinstone.jpg",
+    comments: [],
+  },
+
+    {name: "Taradale Viaduct",
+    country: "Australia",
+    continent: "Australia",
+    image: "/images/taradale_viaduct.jpg",
+    comments: [],
+  }
 ]
 
 
