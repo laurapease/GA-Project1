@@ -14,24 +14,28 @@ const db = require('../models/');
 router.get('/', (req, res) => {
 
      const userQuery = req.session.currentUser;
+     let spotArray = [];
+     let saidArray = [];
 
      if (!userQuery) {
           res.redirect('/auth/login');
           
      } else {
 
-     db.User.findById(userQuery)
-     .populate('user')
-     .exec((err, foundUser) => {
+     db.User.findById(userQuery, (err, foundUser) => {
           if (err) return console.log(err);
-          console.log('Made it to userQuery');
           console.log(foundUser);
+          let query = foundUser.placesSeen;
+          
+          db.Place.find({query}, (err, places) => {
+               if (err) return console.log(err);
+               console.log(places);
+          })
 
-          res.render('auths/user', {
-          userShow: foundUser,
-     });
-});}
+          })
+     }
 });
+
 
 //Register NEW
 router.get('/register', (req, res) => {

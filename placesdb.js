@@ -262,7 +262,7 @@ const commentSeed = [{
     {
       firstName: "Elias",
       body:`Me and some friends went to the Outer Banks, those barrier islands off the coast of North Carolina, a few years ago. I made up a game called Sandpiper and here's the rules: You have to stand in the wet part of the sand by the tide, bend 90 degrees, and stare down at the sand. When you see the tide coming up at you, run backwards still looking down and try to outpace the wave. When it goes back to the water, you have to chase it back in. And back n forth until forever.`,
-      place: "Nag's Head"
+      place: "Outer Banks"
     },
 
     {
@@ -274,7 +274,7 @@ const commentSeed = [{
     {
       firstName: "Elias",
       body:"Seattle is not, like, a place people ~travel to~ but I like the Fremont troll. When I moved to Seattle, this guy greeted me and I appreciate him for that.",
-      place: "Fremont Troll"
+      place: "Seattle"
     },
 
     {
@@ -291,39 +291,39 @@ const commentSeed = [{
     }
 ];
 
-db.Comment.collection.drop();
-db.Place.collection.drop();
+// db.Comment.collection.drop();
+// db.Place.collection.drop();
 
-db.Comment.collection.insertMany(commentSeed, (err, data) => {
-  if (err) return console.log(err);
-    console.log(data);
-  });
+// db.Comment.collection.insertMany(commentSeed, (err, data) => {
+//   if (err) return console.log(err);
+//     console.log(data);
+//   });
 
-  db.Place.collection.insertMany(placeSeed, (err, data) => {
-    if (err) return console.log(err);
-    console.log(data);
+//   db.Place.collection.insertMany(placeSeed, (err, data) => {
+//     if (err) return console.log(err);
+//     console.log(data);
 
-  });
+//   });
 
 
-  db.Comment.find({}, (err, allComments) => {
-    allComments.forEach(function(comment){
+  // db.Comment.find({}, (err, allComments) => {
+  //   allComments.forEach(function(comment){
     
-      db.Place.findOne({name: comment.place}, (err, foundOne) => {
-        if (err) return console.log(err);
+  //     db.Place.findOne({name: comment.place}, (err, foundOne) => {
+  //       if (err) return console.log(err);
        
-        foundOne.comments.push(comment._id);
-        foundOne.save((err, savedPlace) => {
-          if (err) return console.log(err);
+  //       foundOne.comments.push(comment._id);
+  //       foundOne.save((err, savedPlace) => {
+  //         if (err) return console.log(err);
          
-          console.log(savedPlace);
-        });
+  //         console.log(savedPlace);
+  //       });
 
-        console.log(foundOne.comments);
+  //       console.log(foundOne.comments);
 
-      });
-    });
-  });
+  //     });
+  //   });
+  // });
 
 
 
