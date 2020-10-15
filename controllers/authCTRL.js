@@ -14,6 +14,12 @@ const db = require('../models/');
 router.get('/', (req, res) => {
 
      const userQuery = req.session.currentUser;
+
+     if (!userQuery) {
+          res.redirect('/auth/login');
+          
+     } else {
+
      db.User.findById(userQuery)
      .populate('user')
      .exec((err, foundUser) => {
@@ -24,7 +30,7 @@ router.get('/', (req, res) => {
           res.render('auths/user', {
           userShow: foundUser,
      });
-});
+});}
 });
 
 //Register NEW
@@ -115,6 +121,9 @@ router.post('/login', (req, res) => {
                     //Create a new session (express-session)
                     req.session.currentUser = user._id;
                     res.redirect('/places');
+               } else if (!isMatch) {
+                    console.log('Bad password.');
+                    res.redirect('/auth/login');
                }
 
                }
@@ -125,10 +134,13 @@ router.post('/login', (req, res) => {
 
 //Logout User (not a view but an action like delete)
 
-router.delete('/auth/logout', (req, res) => {
+router.delete('/login', (req, res) => {
      
      if (req.session.currentUser) {
           req.session.destroy();
+          res.redirect('/auth/login');
+     } else {
+          res.redirect('/');
      }
 })
 
