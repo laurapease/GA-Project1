@@ -9,24 +9,27 @@
 
      <div class="text-center pt-3">
      <h2><strong><%=place.name%></strong></h2>
-     <section>
+   
      <ul class="text-center" style="list-style-type: none; padding:0;">
           <li>Country: <%=place.country%></li>
           <li>Continent: <%=place.continent%></li>
      </ul>
 
      <div class=row">
-          <div class="col-9 offset-1">
-               <img class="img-fluid rounded" src="/images/fremont_troll.jpg"/>
+          <div class="container col" style="max-height: 100vh; max-width: 100vh;">
+          <div class="col-6 offset-3">
+               <img class="img-fluid rounded" 
+               src="<%=place.image%>">
+          </div>
           </div>
      </div>
      </div>
-     <h4 class="mt-4">Last Comment: </h4>
-     <ul>
+     <ul style="list-style-type: none;">
 
           <% if (commentsLeft.length > 0) { %>
                <% for (let i = 0; i < commentsLeft.length; i++) { %>
-          <li style="font-size:large;" class="ml-3 text-center"><%=commentsLeft[i].body%></li> 
+          <li class="mt-4 text-center" style="font-size:large;"><%=commentsLeft[i].firstName%>:</li>
+          <li style="font-size:medium;" class="ml-3 mt-4 text-center"><%=commentsLeft[i].body%></li> 
                <%}%>
           <%}%>
 
@@ -37,17 +40,35 @@
 
 
      <h4 class="mb-3">Add a Comment!</h4>
-     <form action="/comments/new" method="GET">
-     <input class="ml-3 mb-3" type="submit" value="Add Comment"/><br/>
+     <form action="/comments/" method="POST">
 
-     <form action="/places/<%= place._id %>?_method=DELETE" method="POST">
+          <div>
+          <label for="firstName">First Name:</label>
+          <input type="text" class="form-control" name="firstName"/>
+          </div>
+
+          <div>
+          <label for="body">Comment:</label>
+          <textarea class="form-control" rows="3" name="body"></textarea>
+          </div>
+
+          <div>
+          <input type="hidden" name="place" value="<%=place._id%>" />
+          </div>
+
+          <div>
+          <input type="submit" value="submit"/>
+          </div>
+   </form>     
+
+     <!-- <form action="/places/<%= place._id %>?_method=DELETE" method="POST">
      <input class="ml-3 mb-3" type="submit" value="Delete Place"/>
      </form>
 
      <form action="/places/<%=place._id%>/edit" method="GET">
      <input class="ml-3" type="submit" value="Edit Place"/>
      </form>
-     
-</section>
+      -->
+
 </body>
 </html>

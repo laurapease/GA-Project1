@@ -6,6 +6,38 @@ const Place = require('../models/Place.js')
 const Comment = require('../models/Comment.js')
 const places = require('../placesdb');
 
+const multer = require('multer');
+const multerConfig = {
+
+     storage: multer.diskStorage({
+
+          destination: function(req, file, next) {
+               next(null, './public/images');
+          },
+
+          filename: function(req, file, next){
+               console.log(file);
+               const ext=file.mimetype.split('/')[1];
+               next(null, file.fieldname + '-' + Date.now() + '.' + ext);
+          }
+     }),
+
+     fileFilter: function (req, file, next) {
+          if (!file) {
+               next();
+          }
+          const image=file.mimetype.startsWith('image/');
+          if (image) {
+               console.log('photo uploaded');
+               next(null, true);
+          } else {
+               console.log('file not supported');
+               return next();
+          }
+     }
+}
+
+
 //We're going to be on the /places path.
 
 //INDEX Places
@@ -40,21 +72,26 @@ router.get('/', (req, res) => {
 //NEW Place
 
 router.get('/new', (req, res) => {
-     res.render('places/new');
+
+     if (!req.session.currentUser){
+
+          res.redirect('/auth/login');
+     } else {
+
+     res.render('places/new')}
 });
 
 
 //CREATE places
 
-router.post('/', (req, res) => {
-
-     if (!req.session.currentUser){
-
-          res.redirect('/auth/login');
-     }
+router.post('/', multer(multerConfig).single('photo'), (req, res) => {
+     
      console.log(req.session.currentUser);
-
      req.body.user = req.session.currentUser;
+
+     let imageSource = `/images/${req.file.filename}`;
+     
+     req.body.image = imageSource; 
 
      db.Place.create(req.body, (err, newPlace) => {
           if (err) return console.log(err);
@@ -64,8 +101,6 @@ router.post('/', (req, res) => {
           res.redirect('/places');
      });
 
-     
-     
 });
 
 

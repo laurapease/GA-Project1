@@ -7,33 +7,23 @@
 </head>
 <body>
 
-<h3 class="title m-5">Places Visited</h3>
+<h3 class="text-center pt-3 pb-2">Places</h3>
 
-<!-- <div class="container">
+<div class="card-group text-center offset-2">
+
      <div class="row">
-          <div class="col">
-               1 of 2
-          </div>
-          <div class="col">
-               2 of 2
-          </div>
-     </div>
-     <div class="row">
-          <div class="col"> -->
-
-<ul class="list-group list-group-flush m-5">
-
      <% for (let i = 0; i < places.length; i++) { %>
 
-
-          <li class="list-group-item">
+     <div class="card col-5">
+          <img class="card-img-top rounded pt-3" style="width:100%; height:30vh; object-fit: cover;" src="<%=places[i].image%>">
+          <div class="card-body">
+               <h5 class="card-title"><a href="/places/<%=places[i]._id%>"><%=places[i].name%></h5></a>
+          </div>
+     </div>
           
-          <a href="/places/<%=places[i]._id%>">
-          <%=places[i].name%></a>
-          </li>
-
-     <% } %>
-     </ul>
+ <% } %>
+     </div>
+</div>
 
 
 <form action="/places/new" method="GET">

@@ -57,25 +57,41 @@ router.get('/:commentId', (req, res) => {
 
 router.post('/', (req, res) => {
      
-     const hook = req.body.placeId; //The place we're appending the thing
-     console.log(req.params);
-     Comment.create(
-          req.body, 
+     
+     req.body.creator = req.session.currentUser;
+     req.body.place = req.body.place;
+   
+     Comment.create(req.body, 
           (err, newComment) => {
           if (err) return console.log(err);
+
           console.log(newComment);
-          
-          Place.findById(req.body.place, (err, foundPlace) => {
+          db.User.findById(newComment.creator, (err, userFound) => {
                if (err) return console.log(err);
-               console.log(foundPlace);
-               foundPlace.comments.push(newComment);
-               foundPlace.save((err, savedPlace) => {
+               userFound.commentsLeft.push(newComment._id);
+               userFound.save((err, savedUser) => {
                     if (err) return console.log(err);
-                    console.log(savedPlace, 'savedNewPlace');
-                    res.redirect('/comments');
-          });
+                    console.log(savedUser);
+
+                    db.Place.findById(req.body.place, (err, foundPlace) => {
+                         if (err) return console.log(err);
+                         console.log(foundPlace);
+
+                         foundPlace.comments.push(newComment._id);
+                         foundPlace.save((err, savedPlace) => {
+                              if (err) return console.log(err);
+                              console.log(savedPlace);
+                              userFound.placesSeen.push(foundPlace._id);
+                              userFound.save((err, savedAgain) => {
+                                   if (err) return console.log(err);
+                                   res.redirect(`/places/${savedPlace._id}`);
+                              })
+                         })
+                              
+                    })
+               })
+          })
      });
-     })
 });
 
 //POST Delete

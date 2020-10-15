@@ -9,6 +9,30 @@ const db = require('../models/');
 
 /* Register routes below. -------------------------------------------------------------------------- */
 
+//USER Page is on the "/auth/" itself.
+ 
+router.get('/', (req, res) => {
+
+     const userQuery = req.session.currentUser;
+
+     if (!userQuery) {
+          res.redirect('/auth/login');
+          
+     } else {
+
+     db.User.findById(userQuery)
+     .populate('user')
+     .exec((err, foundUser) => {
+          if (err) return console.log(err);
+          console.log('Made it to userQuery');
+          console.log(foundUser);
+
+          res.render('auths/user', {
+          userShow: foundUser,
+     });
+});}
+});
+
 //Register NEW
 router.get('/register', (req, res) => {
 
@@ -29,8 +53,8 @@ router.post('/register', (req, res) => {
 
           if (user) {
                console.log('User account already exists.');
-               res.redirect('/auth/register');
-          } 
+               res.render('auths/oops');
+          } else {
 
           console.log('hi you made it here');
           //Hash the user password before creating the user
@@ -60,7 +84,7 @@ router.post('/register', (req, res) => {
                });
           })
     
-     })
+     }})
 });
 
 
@@ -97,6 +121,9 @@ router.post('/login', (req, res) => {
                     //Create a new session (express-session)
                     req.session.currentUser = user._id;
                     res.redirect('/places');
+               } else if (!isMatch) {
+                    console.log('Bad password.');
+                    res.redirect('/auth/login');
                }
 
                }
@@ -107,10 +134,13 @@ router.post('/login', (req, res) => {
 
 //Logout User (not a view but an action like delete)
 
-router.delete('/auth/logout', (req, res) => {
+router.delete('/login', (req, res) => {
      
      if (req.session.currentUser) {
           req.session.destroy();
+          res.redirect('/auth/login');
+     } else {
+          res.redirect('/');
      }
 })
 
