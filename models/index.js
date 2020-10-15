@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 require('dotenv').config();
-
+const session = require('express-session');
+const express = require('express');
+const app = express();
 
 mongoose.connect(process.env.MONGODB_URI, {
      useNewUrlParser: true,
@@ -17,6 +19,15 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (err) => {
      console.log(err);
 });
+
+const MongoStore = require('connect-mongo')(session)
+
+app.use(session({
+     secret: process.env.SESSION_SECRET,
+     resave: false,
+     saveUninitialized: false,
+     store: new MongoStore({url: process.env.MONGODB_URI})
+}));
 
 
 module.exports = {

@@ -84,13 +84,13 @@ const placeSeed = [
          { name: "Venice",
      country: "Italy",
      continent: "Europe",
-     image: 'hhttps://i.imgur.com/ArVxP1p.jpg',
+     image: 'https://i.imgur.com/ArVxP1p.jpg',
      comments: [],
         },
 
         {  name: "Amsterdam",
      country: "Netherlands",
-     continent: "Eurpoe",
+     continent: "Europe",
      image: 'https://i.imgur.com/wKZAjOX.jpg',
      comments: [],
       },
@@ -98,7 +98,7 @@ const placeSeed = [
            { name: "Nusa Ceningan",
      country: "Indonesia",
      continent: "Asia",
-     image: 'hhttps://i.imgur.com/EqgE6Yo.jpg',
+     image: 'https://i.imgur.com/EqgE6Yo.jpg',
      comments: [],
       },
 
@@ -134,13 +134,13 @@ const commentSeed = [{
     {
     firstName: "Laura",
     body: "New Orleans has perhaps the most distinctive culture of all of the cities in United States. The French inspirations in the arcitecture give the city a much more classical feel than one would expect from it's young age.",
-    place: "New Orleans"
+    place: "New Orleans, LA"
     }, 
 
     {
     firstName: "Laura",
     body: "Ever wonder what it is like to live on an active volcano? We have your answer here. The hype about the Hawaiian islands is true, but you need to venture away from Oahu to truly experience the islands like a local. The Big Island has excellent diving in Kohala, hidden beaches like the black sand 'Mermaid Beach' on the south of the island, and active volcanoes.",
-    place: "Hawaii -- Big Island"
+    place: "Hawaii - Big Island"
     },
 
     {
@@ -175,42 +175,39 @@ const commentSeed = [{
 
 ];
 
-// Comment.collection.insertMany(commentSeed, (err, data) => {
+// db.Comment.collection.drop();
+// db.Place.collection.drop();
+
+// db.Comment.collection.insertMany(commentSeed, (err, data) => {
 //   if (err) return console.log(err);
-//   console.log(data);
-// });
-// //module.exports = places;
+//     console.log(data);
+//   });
 
-// Place.collection.insertMany(placeSeed, (err, data) => {
-//   if (err) return console.log(err);
-//   console.log(data);
+//   db.Place.collection.insertMany(placeSeed, (err, data) => {
+//     if (err) return console.log(err);
+//     console.log(data);
 
-// });
+//   });
 
 
-db.Comment.find({}, (err, allComments) => {
-  allComments.forEach(function(comment){
-    console.log(comment._id);
-    console.log(comment.place);
-    console.log(comment.body);
-    console.log('*******************');
-    db.Place.findOne({name: comment.place}, (err, foundOne) => {
-      if (err) return console.log(err);
-      console.log('made it to the second search');
-      console.log(foundOne);
-      console.log(foundOne.comments);
-      foundOne.comments.push(comment._id);
-      foundOne.save((err, savedPlace) => {
-        if (err) return console.log(err);
-        console.log('you freaking made it to the end');
-        console.log(savedPlace);
-      });
+  // db.Comment.find({}, (err, allComments) => {
+  //   allComments.forEach(function(comment){
+    
+  //     db.Place.findOne({name: comment.place}, (err, foundOne) => {
+  //       if (err) return console.log(err);
+       
+  //       foundOne.comments.push(comment._id);
+  //       foundOne.save((err, savedPlace) => {
+  //         if (err) return console.log(err);
+         
+  //         console.log(savedPlace);
+  //       });
 
-      console.log(foundOne.comments);
+  //       console.log(foundOne.comments);
 
-    });
-  });
-});
+  //     });
+  //   });
+  // });
 
 
 

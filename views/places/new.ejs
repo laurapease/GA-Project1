@@ -9,7 +9,7 @@
      
 <h3 class="pt-5 pb-3 text-center">What did you see, and where?</h3>
 <!-- name country continent comments -->
-<form action="/places" method="POST">
+<form action="/places" enctype="multipart/form-data" method="POST">
 
      <div class="form-group" style="
      max-width: 50vh;
@@ -30,6 +30,7 @@
           <label for="continent"></label>
           <input type="text" class="form-control mb-5" id="continent" name="continent" placeholder="Continent"/>
           
+          <input type="file" name="photo"/>
 
           <input type="submit" value="Submit"/>
         
