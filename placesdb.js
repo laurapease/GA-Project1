@@ -293,19 +293,19 @@ const commentSeed = [{
     }
 ];
 
-db.Comment.collection.drop();
-db.Place.collection.drop();
+// db.Comment.collection.drop();
+// db.Place.collection.drop();
 
-// db.Comment.collection.insertMany(commentSeed, (err, data) => {
-//   if (err) return console.log(err);
-//     console.log(data);
-//   });
+db.Comment.collection.insertMany(commentSeed, (err, data) => {
+  if (err) return console.log(err);
+    console.log(data);
+  });
 
-//   db.Place.collection.insertMany(placeSeed, (err, data) => {
-//     if (err) return console.log(err);
-//     console.log(data);
+  db.Place.collection.insertMany(placeSeed, (err, data) => {
+    if (err) return console.log(err);
+    console.log(data);
 
-//   });
+  });
 
 
   // db.Comment.find({}, (err, allComments) => {
