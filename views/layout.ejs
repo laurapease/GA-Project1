@@ -10,6 +10,10 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Rock+Salt&display=swap" rel="stylesheet">
+
 <!-- JQUERY----------------------------------------------------------------------- -->
 
 <script defer
@@ -51,7 +55,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light nav-pills nav-fill text-lowercase" 
           style="background-color: #ecb292; ">
-     <a class="navbar-brand mb-3" href="#">where to?</a>
+     <a class="navbar-brand" href="#">where to?</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -74,25 +78,7 @@
                     </li>
                </div>
 
-              
-               
-               <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                         <a class="dropdown-item" href="#">Action</a>
-                         <a class="dropdown-item" href="#">Another action</a>
-                         <div class="dropdown-divider"></div>
-                         <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-               </li> -->
-               
-<!--          
-          <li class="nav-item text-success my-2 my-sm-0">
-               <a class="nav-link" href="/register/new.ejs">Register</a>
-          </li> -->
+
 
           <div class="col">
                <li class="nav-item mt-3 ml-2 mr-3">
@@ -107,15 +93,11 @@
           </div>
      </ul>
      
-               <form class="form-inline pt-2 ml-3 mr-3 my-2 my-sm-0" action="/auth/login/?_method=DELETE" method="POST">
-                    <button class="nav-item btn btn-text-dark  my-2 my-sm-0" type="submit">Logout</button>
+               <form class="form-inline pt-2 ml-3 mr-3 my-2 my-sm-0" action="/auth/logout/?_method=DELETE" method="POST">
+                    <button class="nav-item btn btn-text-dark my-2 my-sm-0" type="submit">Logout</button>
                </form>
 
-               <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-     </div>
+               </div>
 </nav>
 
 <!-- 
@@ -167,15 +149,6 @@
      </div>
 
 
-     <form>
-          <div class="form-row">
-               <div class="form-group col-md-6">
-                    <label for="inputEmail4">Sign Up for Email Updates:</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-               </div>
-               <button type="submit" class="btn">Submit</button>
-     
-     </form>
-
+   
 </body>
 </html>
