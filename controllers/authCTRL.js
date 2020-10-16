@@ -45,16 +45,6 @@ router.get('/register', (req, res) => {
 router.post('/register', (req, res) => {
 
      console.log('register post');
-     db.User.findOne({email: req.body.email}, (err, user) => {
-
-
-          if (err) return console.log(err);
-          console.log('begun searching for user');
-
-          if (user) {
-               console.log('User account already exists.');
-               res.render('auths/oops');
-          } else {
 
           console.log('hi you made it here');
           //Hash the user password before creating the user
@@ -83,9 +73,9 @@ router.post('/register', (req, res) => {
                     });
                });
           })
-    
-     }})
+ 
 });
+
 
 
 /*Login Routes -------------------------------------------------------------------------- */
