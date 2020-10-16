@@ -296,37 +296,37 @@ const commentSeed = [{
 // db.Comment.collection.drop();
 // db.Place.collection.drop();
 
-db.Comment.collection.insertMany(commentSeed, (err, data) => {
-  if (err) return console.log(err);
-    console.log(data);
-  });
+// db.Comment.collection.insertMany(commentSeed, (err, data) => {
+//   if (err) return console.log(err);
+//     console.log(data);
+//   });
 
-  db.Place.collection.insertMany(placeSeed, (err, data) => {
-    if (err) return console.log(err);
-    console.log(data);
+//   db.Place.collection.insertMany(placeSeed, (err, data) => {
+//     if (err) return console.log(err);
+//     console.log(data);
 
-  });
+//   });
 
 
-  // db.Comment.find({}, (err, allComments) => {
-  //   allComments.forEach(function(comment){
+  db.Comment.find({}, (err, allComments) => {
+    allComments.forEach(function(comment){
     
-  //     db.Place.findOne({name: comment.place}, (err, foundOne) => {
-  //       if (err) return console.log(err);
+      db.Place.findOne({name: comment.place}, (err, foundOne) => {
+        if (err) return console.log(err);
        
-  //       foundOne.comments.push(comment._id);
-  //       foundOne.save((err, savedPlace) => {
-  //         if (err) return console.log(err);
+        foundOne.comments.push(comment._id);
+        foundOne.save((err, savedPlace) => {
+          if (err) return console.log(err);
          
-  //         console.log(savedPlace);
-  //       });
+          console.log(savedPlace);
+        });
 
-  //       console.log(foundOne.comments);
+        console.log(foundOne.comments);
 
-  //     });
-  //   });
+      });
+    });
 
-  // });
+  });
 
 
 
