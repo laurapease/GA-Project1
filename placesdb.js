@@ -307,6 +307,7 @@ const commentSeed = [{
 
 //   });
 
+// mongoose.connection.close();
 
   // db.Comment.find({}, (err, allComments) => {
   //   allComments.forEach(function(comment){
@@ -325,6 +326,8 @@ const commentSeed = [{
 
   //     });
   //   });
+
+  //   mongoose.connection.close();
   // });
 
 

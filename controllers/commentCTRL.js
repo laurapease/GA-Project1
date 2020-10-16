@@ -95,7 +95,7 @@ router.post('/:commentId', (req, res) => {
           (err, deletedComment) => {
           if (err) return console.log(err);
           console.log(deletedComment);
-          res.redirect('/comments');
+          res.redirect('/places');
      });
 });
 
