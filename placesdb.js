@@ -12,13 +12,13 @@ const { Seeder } = require('mongo-seeding');
 const { places } = require('./controllers');
 const { exists } = require('./models/User');
 const config = {
-  database: 'mongodb://localhost:27017/OTBP',
+  database: 'mongodb+srv://baezus:beatenpath@walkside.2vg3k.mongodb.net/OTBP?retryWrites=true&w=majority',
   dropDatabase: true,
 };
 
 const seeder = new Seeder(config);
 
-const connectionString = 'mongodb://localhost:27017/OTBP';
+const connectionString = 'mongodb+srv://baezus:beatenpath@walkside.2vg3k.mongodb.net/OTBP?retryWrites=true&w=majority';
 mongoose.connect(connectionString, {
 
     useNewUrlParser: true,
@@ -294,20 +294,19 @@ const commentSeed = [{
 ];
 
 db.Comment.collection.drop();
-db.Place.collection.drop();
+// db.Place.collection.drop();
 
-db.Comment.collection.insertMany(commentSeed, (err, data) => {
-  if (err) return console.log(err);
-    console.log(data);
-  });
+// db.Comment.collection.insertMany(commentSeed, (err, data) => {
+//   if (err) return console.log(err);
+//     console.log(data);
+//   });
 
-  db.Place.collection.insertMany(placeSeed, (err, data) => {
-    if (err) return console.log(err);
-    console.log(data);
+//   db.Place.collection.insertMany(placeSeed, (err, data) => {
+//     if (err) return console.log(err);
+//     console.log(data);
 
-  });
+//   });
 
-mongoose.connection.close();
 
   // db.Comment.find({}, (err, allComments) => {
   //   allComments.forEach(function(comment){
