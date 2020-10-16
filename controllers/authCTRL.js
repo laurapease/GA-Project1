@@ -10,7 +10,6 @@ const db = require('../models/');
 /* Register routes below. -------------------------------------------------------------------------- */
 
 //USER Page is on the "/auth/" itself.
- 
 router.get('/', (req, res) => {
 
      const userQuery = req.session.currentUser;
@@ -32,6 +31,7 @@ router.get('/', (req, res) => {
      });
 });}
 });
+
 
 //Register NEW
 router.get('/register', (req, res) => {
@@ -75,10 +75,10 @@ router.post('/register', (req, res) => {
                               email: req.body.email,
                               password: hashedPassword,
                     }
-
+                    console.log(newUser);
                     db.User.create(newUser, (err, createdUser) => {
                          if (err) return console.log(err);
-
+                         console.log(createdUser);
                          res.redirect('/auth/login');
                     });
                });
