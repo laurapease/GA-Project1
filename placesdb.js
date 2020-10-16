@@ -12,13 +12,13 @@ const { Seeder } = require('mongo-seeding');
 const { places } = require('./controllers');
 const { exists } = require('./models/User');
 const config = {
-  database: 'mongodb://localhost:27017/OTBP',
+  database: 'mongodb+srv://baezus:beatenpath@walkside.2vg3k.mongodb.net/OTBP?retryWrites=true&w=majority',
   dropDatabase: true,
 };
 
 const seeder = new Seeder(config);
 
-const connectionString = 'mongodb://localhost:27017/OTBP';
+const connectionString = 'mongodb+srv://baezus:beatenpath@walkside.2vg3k.mongodb.net/OTBP?retryWrites=true&w=majority';
 mongoose.connect(connectionString, {
 
     useNewUrlParser: true,
@@ -307,28 +307,26 @@ const commentSeed = [{
 
 //   });
 
-// mongoose.connection.close();
 
-  // db.Comment.find({}, (err, allComments) => {
-  //   allComments.forEach(function(comment){
+  db.Comment.find({}, (err, allComments) => {
+    allComments.forEach(function(comment){
     
-  //     db.Place.findOne({name: comment.place}, (err, foundOne) => {
-  //       if (err) return console.log(err);
+      db.Place.findOne({name: comment.place}, (err, foundOne) => {
+        if (err) return console.log(err);
        
-  //       foundOne.comments.push(comment._id);
-  //       foundOne.save((err, savedPlace) => {
-  //         if (err) return console.log(err);
+        foundOne.comments.push(comment._id);
+        foundOne.save((err, savedPlace) => {
+          if (err) return console.log(err);
          
-  //         console.log(savedPlace);
-  //       });
+          console.log(savedPlace);
+        });
 
-  //       console.log(foundOne.comments);
+        console.log(foundOne.comments);
 
-  //     });
-  //   });
+      });
+    });
 
-  //   mongoose.connection.close();
-  // });
+  });
 
 
 

@@ -73,12 +73,7 @@ router.get('/', (req, res) => {
 
 router.get('/new', (req, res) => {
 
-     if (!req.session.currentUser){
-
-          res.redirect('/auth/login');
-     } else {
-
-     res.render('places/new')}
+     res.render('places/new')
 });
 
 
