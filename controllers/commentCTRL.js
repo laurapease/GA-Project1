@@ -61,21 +61,12 @@ router.post('/', (req, res) => {
      req.body.creator = req.session.currentUser;
      req.body.place = req.body.place;
 
-     if (!req.session.currentUser) {
-          res.redirect('/');
-     }
-   
      Comment.create(req.body, 
           (err, newComment) => {
           if (err) return console.log(err);
 
           console.log(newComment);
-          db.User.findById(newComment.creator, (err, userFound) => {
-               if (err) return console.log(err);
-               userFound.commentsLeft.push(newComment._id);
-               userFound.save((err, savedUser) => {
-                    if (err) return console.log(err);
-                    console.log(savedUser);
+       
 
                     db.Place.findById(req.body.place, (err, foundPlace) => {
                          if (err) return console.log(err);
@@ -85,18 +76,15 @@ router.post('/', (req, res) => {
                          foundPlace.save((err, savedPlace) => {
                               if (err) return console.log(err);
                               console.log(savedPlace);
-                              userFound.placesSeen.push(foundPlace._id);
-                              userFound.save((err, savedAgain) => {
-                                   if (err) return console.log(err);
+                              
                                    res.redirect(`/places/${savedPlace._id}`);
                               })
                          })
-                              
-                    })
-               })
-          })
-     });
-});
+                             
+             })
+  })
+
+
 
 //POST Delete
 
