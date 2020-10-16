@@ -60,6 +60,10 @@ router.post('/', (req, res) => {
      
      req.body.creator = req.session.currentUser;
      req.body.place = req.body.place;
+
+     if (!req.session.currentUser) {
+          res.redirect('/');
+     }
    
      Comment.create(req.body, 
           (err, newComment) => {

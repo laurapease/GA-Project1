@@ -10,30 +10,26 @@ const db = require('../models/');
 /* Register routes below. -------------------------------------------------------------------------- */
 
 //USER Page is on the "/auth/" itself.
- 
 router.get('/', (req, res) => {
 
      const userQuery = req.session.currentUser;
-     let spotArray = [];
-     let saidArray = [];
 
      if (!userQuery) {
           res.redirect('/auth/login');
           
      } else {
 
-     db.User.findById(userQuery, (err, foundUser) => {
+     db.User.findById(userQuery)
+     .populate('user')
+     .exec((err, foundUser) => {
           if (err) return console.log(err);
+          console.log('Made it to userQuery');
           console.log(foundUser);
-          let query = foundUser.placesSeen;
-          
-          db.Place.find({query}, (err, places) => {
-               if (err) return console.log(err);
-               console.log(places);
-          })
 
-          })
-     }
+          res.render('auths/user', {
+          userShow: foundUser,
+     });
+});}
 });
 
 
@@ -79,10 +75,10 @@ router.post('/register', (req, res) => {
                               email: req.body.email,
                               password: hashedPassword,
                     }
-
+                    console.log(newUser);
                     db.User.create(newUser, (err, createdUser) => {
                          if (err) return console.log(err);
-
+                         console.log(createdUser);
                          res.redirect('/auth/login');
                     });
                });

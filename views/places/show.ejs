@@ -28,7 +28,7 @@
 
           <% if (commentsLeft.length > 0) { %>
                <% for (let i = 0; i < commentsLeft.length; i++) { %>
-          <li class="mt-4 text-center" style="font-size:large;"><%=commentsLeft[i].firstName%>:</li>
+          <li class="mt-4 text-center" style="font-size:large;"><a href="/comments/<%=commentsLeft[i]._id%>"><%=commentsLeft[i].firstName%>:</a></li>
           <li style="font-size:medium;" class="ml-3 mt-4 text-center"><%=commentsLeft[i].body%></li> 
                <%}%>
           <%}%>
@@ -40,7 +40,7 @@
 
 
      <h4 class="mb-3">Add a Comment!</h4>
-     <form action="/comments/" method="POST">
+     <form action="/comments" method="POST">
 
           <div>
           <label for="firstName">First Name:</label>
@@ -59,16 +59,17 @@
           <div>
           <input type="submit" value="submit"/>
           </div>
-   </form>     
+   </form>
 
-     <!-- <form action="/places/<%= place._id %>?_method=DELETE" method="POST">
-     <input class="ml-3 mb-3" type="submit" value="Delete Place"/>
+<div class="container" style="justify-content: center; align-items: center;">
+     <form action="/places/<%= place._id %>?_method=DELETE" method="POST">
+     <input class="mt-3 ml-3 mb-3" type="submit" value="Delete Place"/>
      </form>
 
      <form action="/places/<%=place._id%>/edit" method="GET">
      <input class="ml-3" type="submit" value="Edit Place"/>
      </form>
-      -->
+</div>
 
 </body>
 </html>
