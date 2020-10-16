@@ -7,10 +7,10 @@
 </head>
 <body>
 
-     <div class="text-center pt-3">
+     <div class="text-center pt-3 text-light">
      <h2><strong><%=place.name%></strong></h2>
    
-     <ul class="text-center" style="list-style-type: none; padding:0;">
+     <ul class="text-center text-light" style="list-style-type: none; padding:0;">
           <li>Country: <%=place.country%></li>
           <li>Continent: <%=place.continent%></li>
      </ul>
@@ -24,7 +24,7 @@ box-shadow: 5px 10px 10px darkgrey; margin-left: 475px; margin-right: 475px; pad
                <img class="img-fluid rounded card-img-top" 
                src="<%=place.image%>">
           </div>
-          <div class="text-center" style="padding-top: 50px; font-family: 'Reenie Beanie', cursive; font-size: 40px; font-weight: lighter">
+          <div class="text-center" style="padding-top: 50px; font-family: 'Reenie Beanie', cursive; font-size: 40px; font-weight: lighter; color: black">
                <h2><strong><%=place.name%></strong></h2>
           </div>
      </div>
@@ -35,8 +35,8 @@ box-shadow: 5px 10px 10px darkgrey; margin-left: 475px; margin-right: 475px; pad
 
           <% if (commentsLeft.length > 0) { %>
                <% for (let i = 0; i < commentsLeft.length; i++) { %>
-          <li class="mt-4 text-center" style="font-size:large;"><%=commentsLeft[i].firstName%>:</li>
-          <li style="font-size:medium; margin-left: 100px; margin-right: 100px;" class="ml-3 mt-2 text-center"><%=commentsLeft[i].body%></li> 
+          <li class="mt-4 text-center text-light" style="font-size:large;"><%=commentsLeft[i].firstName%>:</li>
+          <li style="font-size:medium; margin-left: 100px; margin-right: 100px;" class="ml-3 mt-2 text-center text-light"><%=commentsLeft[i].body%></li> 
                <%}%>
           <%}%>
 
